@@ -7,7 +7,7 @@ version: 2
 
 # Personal info
 name: 우준희(Woo Junhui)
-title: 데이터 엔지니어(Jr. Data Engineer)
+title: Jr. Data Engineer
 email: junhui.woo.math@gmail.com
 # email_title: Email (Email title override)
 # phone: Your phone number (optional)
@@ -82,7 +82,7 @@ content:
   - title: Experience
     layout: list
     content:
-      - layout: right
+      - layout: top-right #right
         title: KIS pricing INC, Finance Engineering Group
         sub_title: Assistant Manager, Analyst
         caption: December 1st, 2021 - August 8th, 2023
@@ -90,6 +90,8 @@ content:
         # quote: >
         #  Short description of the company (optional)
         description: | # this will include new lines to allow paragraphs
+          KIS자산평가, 금융공학연구소에서 파생상품 모듈 개발 및 데이터 산출에 대한 업무를 담당했습니다. 
+          제가 주로 맡았던 프로젝트는 다음과 같습니다.
           - Revamping the Option Pricing Data Collection Process
           - Overhauling the Stock Model
           - Modifying the code of the process engine that calculates the default rate
@@ -108,7 +110,13 @@ content:
           
   - title: A Little More About Me
     layout: text
+    subtitle: Award
     content: | # this will include new lines to allow paragraphs
+      |제목 셀1|제목 셀2|제목 셀3|제목 셀4|
+      |---|---|---|---|
+      |내용 1|내용 2|내용 3|내용 4|
+      |내용 5|내용 6|내용 7|내용 8|
+      |내용 9|내용 10|내용 11|내용 12|
       This is where you can write a little more about yourself. You could title this section **Interests** and include some of your other interests.
 
       Or you could title it **Skills** and write a bit more about things that make you more desirable, like *leadership* or *teamwork*
