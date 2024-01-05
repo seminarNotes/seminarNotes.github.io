@@ -99,7 +99,7 @@ content:
   - title: Education
     layout: list
     content:
-      - layout: top-right
+      - layout: left
         title: Pusan National University, Graduate School
         sub_title: Department of Mathematics, Master degree
         caption: September, 2017 - February, 2019
@@ -110,16 +110,21 @@ content:
           
   - title: A Little More About Me
     layout: text
-    subtitle: Award
+    subtitle: Papers
     content: | # this will include new lines to allow paragraphs
+      
       |제목 셀1|제목 셀2|제목 셀3|제목 셀4|
       |---|---|---|---|
       |내용 1|내용 2|내용 3|내용 4|
       |내용 5|내용 6|내용 7|내용 8|
       |내용 9|내용 10|내용 11|내용 12|
+      
       This is where you can write a little more about yourself. You could title this section **Interests** and include some of your other interests.
 
       Or you could title it **Skills** and write a bit more about things that make you more desirable, like *leadership* or *teamwork*
+
+    subtitle: Award
+    content: | # this will include new lines to allow paragraphs
 
 # Footer
 footer_show_references: true
