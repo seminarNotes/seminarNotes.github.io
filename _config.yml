@@ -6,7 +6,7 @@ repository: Git repository where your resume will be hosted, only required if yo
 version: 2
 
 # Personal info
-name: 우준희(Woo Junhui)
+name: 우준희
 title: Jr. Data Engineer
 email: junhui.woo.math@gmail.com
 # email_title: Email (Email title override)
@@ -108,23 +108,18 @@ content:
         description: | # this will include new lines to allow paragraphs
           Description of qualification
           
-  - title: A Little More About Me
+  - title: Paper
     layout: text
-    subtitle: Papers
     content: | # this will include new lines to allow paragraphs
-      
-      |제목 셀1|제목 셀2|제목 셀3|제목 셀4|
-      |---|---|---|---|
-      |내용 1|내용 2|내용 3|내용 4|
-      |내용 5|내용 6|내용 7|내용 8|
-      |내용 9|내용 10|내용 11|내용 12|
-      
-      This is where you can write a little more about yourself. You could title this section **Interests** and include some of your other interests.
+    - Junhui, U., Donghyun Kim, and Ji-Hun Yoon. "The pricing of vulnerable options under a constant elasticity of variance model." Journal of the Chungcheong Mathematical Society 33.2 (2020): 181-195.
+    - Kim, Donghyun, Junhui Woo, and Ji-Hun Yoon. "Pricing American lookback options under a stochastic volatility model." Bulletin of the Korean Mathematical Society (2023): 361-388.
 
-      Or you could title it **Skills** and write a bit more about things that make you more desirable, like *leadership* or *teamwork*
-
-    subtitle: Award
+  - title: Awards
+    layout: text
     content: | # this will include new lines to allow paragraphs
+    - Academic award, College of Natural Sciences, Pusan National University, 2020.05.29.
+    - Commendation letter, Republic of Korea Army Logistics Command, 2019.06.28.
+    
 
 # Footer
 footer_show_references: true
