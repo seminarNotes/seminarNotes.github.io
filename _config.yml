@@ -71,28 +71,42 @@ content:
           - title: seminarNotes/analysis--customer-lifetime-value
             icon: fab fa-github
             url: https://github.com/seminarNotes/analysis--customer-lifetime-value
-          
         quote: >
           판매 내역 데이터와 고객 데이터를 활용하여, EDA분석 및 LTV분석을 한 프로젝트입니다.
         description: | # this will include new lines to allow paragraphs
           고객생애가치 LTV는 'Life-Time Value'의 줄임말로, 고객이 평생 동안 기업에게 어느 정도의 금전적 가치를 가져다 주는지를 정량화한 지표를 의미합니다.
-
 
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
-        title: analysis1
+        title: Project2
         # link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
         # link_text: Link Text
         additional_links:
-          - title: seminarNotes/analysis--customer-lifetime-value
+          - title: Project2-Analysis
             icon: fab fa-github
-            url: https://github.com/seminarNotes/analysis--customer-lifetime-value
-          
+            url: https://github.com/seminarNotes/analysis--customer-lifetime-value  
         quote: >
-          판매 내역 데이터와 고객 데이터를 활용하여, EDA분석 및 LTV분석을 한 프로젝트입니다.
+          이것은 두번째 프로젝트에 대한 설명입니다.
         description: | # this will include new lines to allow paragraphs
           고객생애가치 LTV는 'Life-Time Value'의 줄임말로, 고객이 평생 동안 기업에게 어느 정도의 금전적 가치를 가져다 주는지를 정량화한 지표를 의미합니다.
+          
+      - layout: left
+        border: weak  # Value of `weak` will display a weak border below this item. # Any 
+                      # other value (or no value) means no border will be displayed
+        title: Project2
+        # link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+        # link_text: Link Text
+        additional_links:
+          - title: Project2-Analysis
+            icon: fab fa-github
+            url: https://github.com/seminarNotes/analysis--customer-lifetime-value  
+        quote: >
+          이것은 두번째 프로젝트에 대한 설명입니다.
+        description: | # this will include new lines to allow paragraphs
+          고객생애가치 LTV는 'Life-Time Value'의 줄임말로, 고객이 평생 동안 기업에게 어느 정도의 금전적 가치를 가져다 주는지를 정량화한 지표를 의미합니다.
+
+          
           
   - title: Experience
     layout: list
@@ -123,13 +137,11 @@ content:
         description: | # this will include new lines to allow paragraphs
           저는 부산대학교 일반대학원 수학과에서 금융수학을 공부하고, 옵션 평가 방법에 대해서 공부하였습니다.
           
-  # - title: Publications
-  #   layout: text
-  #   content: # this will include new lines to allow paragraphs
-  #     - layout: left
-  #       description: |
-  #         - 'Junhui, U., Donghyun Kim, and Ji-Hun Yoon. "The pricing of vulnerable options under a constant elasticity of variance model." Journal of the Chungcheong Mathematical Society 33.2 (2020): 181-195.'    
-  #         - 'Kim, Donghyun, Junhui Woo, and Ji-Hun Yoon. "Pricing American lookback options under a stochastic volatility model." Bulletin of the Korean Mathematical Society (2023), 361-388.'
+  - title: Publications
+    layout: text
+    content: | # this will include new lines to allow paragraphs
+      - 'Junhui, U., Donghyun Kim, and Ji-Hun Yoon. "The pricing of vulnerable options under a constant elasticity of variance model." Journal of the Chungcheong Mathematical Society 33.2 (2020): 181-195.'    
+      - 'Kim, Donghyun, Junhui Woo, and Ji-Hun Yoon. "Pricing American lookback options under a stochastic volatility model." Bulletin of the Korean Mathematical Society (2023), 361-388.'
 
   # - title: Awards
   #   layout: text
