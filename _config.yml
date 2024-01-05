@@ -100,13 +100,13 @@ content:
     layout: list
     content:
       - layout: left
-        title: Pusan National University, Graduate School
-        sub_title: Department of Mathematics, Master degree
+        title: 부산대학교 대학원
+        sub_title: 수학과
         caption: September, 2017 - February, 2019
         quote: >
-          Short institution or course description (optional)
+          Pusan National University, Graduate School,  Department of Mathematics, Master degree
         description: | # this will include new lines to allow paragraphs
-          Description of qualification
+          저는 부산대학교 일반대학원 수학과에서 금융수학을 공부하고, 옵션 평가 방법에 대해서 공부하였습니다.
           
   - title: Paper
     layout: text
