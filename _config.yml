@@ -50,7 +50,7 @@ github_username:  seminarNotes
 
 # About Section
 # about_title: About Me (Use this to override about section title)
-about_profile_image: images/profile.png #Directory of profile image (eg. images/profile.jpg)
+about_profile_image: images/profile.jpg #Directory of profile image (eg. images/profile.jpg)
 about_content: | # this will include new lines to allow paragraphs
   Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
 
@@ -81,6 +81,7 @@ content:
           Short overview of the project (optional)
         description: | # this will include new lines to allow paragraphs
           Description about the work on/with the project
+          
   - title: Experience
     layout: list
     content:
@@ -93,6 +94,7 @@ content:
           Short description of the company (optional)
         description: | # this will include new lines to allow paragraphs
           Description of role
+          
   - title: Education
     layout: list
     content:
@@ -104,6 +106,7 @@ content:
           Short institution or course description (optional)
         description: | # this will include new lines to allow paragraphs
           Description of qualification
+          
   - title: A Little More About Me
     layout: text
     content: | # this will include new lines to allow paragraphs
