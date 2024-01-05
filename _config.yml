@@ -6,8 +6,8 @@ repository: Git repository where your resume will be hosted, only required if yo
 version: 2
 
 # Personal info
-name: Woo Junhui
-title: Jr. Data Engineer
+name: 우준희(Woo Junhui)
+title: 데이터 엔지니어(Jr. Data Engineer)
 email: junhui.woo.math@gmail.com
 # email_title: Email (Email title override)
 # phone: Your phone number (optional)
