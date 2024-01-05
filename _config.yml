@@ -129,9 +129,28 @@ content:
     layout: list
     content:
       - layout: left
+        title: Woori FISA
+        sub_title: AI Enginnering
+        caption: Nov, 2023 - Present(until May, 2024)
+        link: https://woorifisa.com/
+        quote: >
+          Pusan National University, Graduate School,  Department of Mathematics, Master degree
+        description: | # this will include new lines to allow paragraphs
+          저는 현재 우리FISA 디지털 트레이닝 교육을 듣고 있습니다. 본 교육을 통해, 데이터 엔지니어링 및 웹 서비스에 대한 교육을 듣고 있습니다.
+          
+      - layout: left
         title: Pusan Natl. Univ.
-        sub_title: Mathematics
+        sub_title: M.S. with Mathematics
         caption: Sep, 2017 - Feb, 2019
+        quote: >
+          Pusan National University, Graduate School,  Department of Mathematics, Master degree
+        description: | # this will include new lines to allow paragraphs
+          저는 부산대학교 일반대학원 수학과에서 금융수학을 공부하고, 옵션 평가 방법에 대해서 공부하였습니다.
+          
+      - layout: left
+        title: Inha Univ.
+        sub_title: B.S. with Math edu.
+        caption: May, 2013 - Feb, 2017
         quote: >
           Pusan National University, Graduate School,  Department of Mathematics, Master degree
         description: | # this will include new lines to allow paragraphs
