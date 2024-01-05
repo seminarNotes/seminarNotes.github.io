@@ -7,7 +7,7 @@ version: 2
 
 # Personal info
 name: Woo Junhui
-title: Data Engineer
+title: Jr. Data Engineer
 email: junhui.woo.math@gmail.com
 # email_title: Email (Email title override)
 # phone: Your phone number (optional)
@@ -52,12 +52,10 @@ github_username:  seminarNotes
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg #Directory of profile image (eg. images/profile.jpg)
 about_content: | # this will include new lines to allow paragraphs
-  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
 
-  You can even add paragraphs by using empty lines like this and add anything else [markdown](https://www.markdownguide.org/getting-started#what-is-markdown) supports such as
-    - Lists
-    - Tables
-    - <a href="google.com">Links</a>
+  안녕하세요? 데이터 엔지니어 우준희입니다.
+  저는 대용량 데이터를 효율적으로 처리하고, 시스템화 하는 것에 대해 공부하고 있습니다.
+  이것은 ##마크다운## 입니다.
     
 content:
   - title: Projects # Title for the section
