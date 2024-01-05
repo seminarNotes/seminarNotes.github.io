@@ -100,9 +100,9 @@ content:
     layout: list
     content:
       - layout: left
-        title: 부산대학교 대학원
-        sub_title: 수학과
-        caption: September, 2017 - February, 2019
+        title: Pusan Natl. Univ.
+        sub_title: Mathematics
+        caption: Sep, 2017 - Feb, 2019
         quote: >
           Pusan National University, Graduate School,  Department of Mathematics, Master degree
         description: | # this will include new lines to allow paragraphs
