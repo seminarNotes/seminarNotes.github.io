@@ -83,22 +83,24 @@ content:
     layout: list
     content:
       - layout: right
-        title: Company name
-        sub_title: Job title
-        caption: Date Range (eg. November 2016 - present)
-        link: Link to company (optional)
-        quote: >
-          Short description of the company (optional)
+        title: KIS pricing INC, Finance Engineering Group
+        sub_title: Assistant Manager, Analyst
+        caption: December 1st, 2021 - August 8th, 2023
+        link: https://www.bond.co.kr/
+        # quote: >
+        #  Short description of the company (optional)
         description: | # this will include new lines to allow paragraphs
-          Description of role
+          - Revamping the Option Pricing Data Collection Process
+          - Overhauling the Stock Model
+          - Modifying the code of the process engine that calculates the default rate
           
   - title: Education
     layout: list
     content:
       - layout: top-right
-        title: Institution name
-        sub_title: Qualifications (eg. BA Performing Arts)
-        caption: Date Range (eg. 2016 - 2019)
+        title: Pusan National University, Graduate School
+        sub_title: Department of Mathematics, Master degree
+        caption: September, 2017 - February, 2019
         quote: >
           Short institution or course description (optional)
         description: | # this will include new lines to allow paragraphs
