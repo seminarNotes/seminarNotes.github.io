@@ -64,20 +64,18 @@ content:
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
-        title: Project name
-        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-        link_text: Link Text
+        title: LTV analysis
+        # link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+        # link_text: Link Text
         additional_links:
-          - title:  Github page for project (eg. sproogen/modern-resume-theme)
+          - title: seminarNotes/analysis--customer-lifetime-value
             icon: fab fa-github
-            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-          - title:  Github page for project (eg. sproogen/modern-resume-theme)
-            icon: fab fa-github
-            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+            url: https://github.com/seminarNotes/analysis--customer-lifetime-value
+          
         quote: >
-          Short overview of the project (optional)
+          판매 내역 데이터와 고객 데이터를 활용하여, EDA분석 및 LTV분석을 한 프로젝트입니다.
         description: | # this will include new lines to allow paragraphs
-          Description about the work on/with the project
+          고객생애가치 LTV는 'Life-Time Value'의 줄임말로, 고객이 평생 동안 기업에게 어느 정도의 금전적 가치를 가져다 주는지를 정량화한 지표를 의미합니다.
           
   - title: Experience
     layout: list
