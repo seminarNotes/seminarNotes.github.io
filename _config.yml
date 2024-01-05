@@ -109,14 +109,16 @@ content:
   - title: Paper
     layout: text
     content: | # this will include new lines to allow paragraphs
-    - Junhui, U., Donghyun Kim, and Ji-Hun Yoon. "The pricing of vulnerable options under a constant elasticity of variance model." Journal of the Chungcheong Mathematical Society 33.2 (2020): 181-195.
-    - Kim, Donghyun, Junhui Woo, and Ji-Hun Yoon. "Pricing American lookback options under a stochastic volatility model." Bulletin of the Korean Mathematical Society (2023): 361-388.
+      - description: |
+        저는 총 2편의 논문을 작성했습니다.
+        - Junhui, U., Donghyun Kim, and Ji-Hun Yoon. "The pricing of vulnerable options under a constant elasticity of variance model." Journal of the Chungcheong Mathematical Society 33.2 (2020): 181-195.
+        - Kim, Donghyun, Junhui Woo, and Ji-Hun Yoon. "Pricing American lookback options under a stochastic volatility model." Bulletin of the Korean Mathematical Society (2023): 361-388.
 
-  - title: Awards
-    layout: text
-    content: | # this will include new lines to allow paragraphs
-    - Academic award, College of Natural Sciences, Pusan National University, 2020.05.29.
-    - Commendation letter, Republic of Korea Army Logistics Command, 2019.06.28.
+  # - title: Awards
+  #   layout: text
+  #   content: | # this will include new lines to allow paragraphs
+  #   - Academic award, College of Natural Sciences, Pusan National University, 2020.05.29.
+  #   - Commendation letter, Republic of Korea Army Logistics Command, 2019.06.28.
     
 
 # Footer
