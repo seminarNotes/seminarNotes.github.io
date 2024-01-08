@@ -105,19 +105,24 @@ content:
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
-        title: Project2
-        # link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-        # link_text: Link Text
+        title: Project2:Analysis
+        link: https://github.com/seminarNotes/analysis--hyperparameter-tuning-lstm
+        link_text: Go to the link for Project1
         additional_links:
-          - title: Project2-Analysis
+          - title: seminarNotes/analysis--hyperparameter-tuning-lstm
             icon: fab fa-github
-            url: https://github.com/seminarNotes/analysis--customer-lifetime-value  
+            url: https://github.com/seminarNotes/analysis--hyperparameter-tuning-lstm
         quote: >
-          이것은 두번째 프로젝트에 대한 설명입니다.
+          Training and Validation of LSTM Model with Hyperparameter Tuning
         description: | # this will include new lines to allow paragraphs
-          고객생애가치 LTV는 'Life-Time Value'의 줄임말로, 고객이 평생 동안 기업에게 어느 정도의 금전적 가치를 가져다 주는지를 정량화한 지표를 의미합니다.
-
-           <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"> 
+          하이퍼파라미터 튜닝은 머신러닝 모델의 성능을 최적화하기 위해 모델의 하이퍼파라미터를 조정하는 프로세스입니다.
+          이 과정은 반복적이고 시행착오(Trials and errors)적이기 때문에 효율적으로 튜닝을 하기 위해 탐색 공간을 정의하여 데이터베이스에 저장하였고, 이를 바탕으로 학습과 모델 평가를 수행하였습니다.
+          또한, 작업 스케줄링을 위한 데이터베이스 테이블을 정의하여 각 작업을 순차적으로 모니터링할 수 있도록 구성하였습니다.
+          
+           <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
+           <img src="https://img.shields.io/badge/tensorflow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white"> 
+           <img src="https://img.shields.io/badge/Mysql-4479A1?style=for-the-badge&logo=Mysql&logoColor=white"> 
+           
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
