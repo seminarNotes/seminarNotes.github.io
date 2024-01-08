@@ -53,10 +53,9 @@ github_username:  seminarNotes
 about_profile_image: images/profile.jpg #Directory of profile image (eg. images/profile.jpg)
 about_content: | # this will include new lines to allow paragraphs
 
-  안녕하세요? 데이터 엔지니어 우준희입니다.
-  저는 대용량 데이터를 효율적으로 처리하고, 시스템화 하는 것에 대해 공부하고 있습니다.
-  이것은 ##마크다운## 입니다.
-
+  안녕하세요?
+  데이터 엔지니어 우준희입니다.
+  저는 대량의 데이터를 효율적으로 수집, 저장, 처리, 분석하는 것에 관심이 많으며, 이와 관련된 공부를 하고 있습니다. 
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"> 
     
 content:
