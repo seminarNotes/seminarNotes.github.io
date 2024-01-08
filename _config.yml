@@ -52,11 +52,9 @@ instagram_username: woojunhui
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg #Directory of profile image (eg. images/profile.jpg)
 about_content: | # this will include new lines to allow paragraphs
-  👋 인사말  
+  👋 Hello 
   안녕하세요? 데이터 엔지니어 우준희입니다.  
   저는 대량의 데이터를 효율적으로 수집, 저장, 처리, 분석하는 것에 관심이 많으며, 이와 관련된 공부를 하고 있습니다. 
-
- 
 
   👨‍🎓Expertise
   - Math
