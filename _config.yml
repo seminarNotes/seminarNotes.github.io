@@ -147,7 +147,11 @@ content:
           <img src="https://img.shields.io/badge/Mysql-4479A1?style=for-the-badge&logo=Mysql&logoColor=white"> 
           <img src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"> 
           <img src="https://img.shields.io/badge/numpy-013243?style=for-the-badge&logo=numpy&logoColor=white"> 
-           
+          <img src="https://img.shields.io/badge/tensorflow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white"> 
+          <img src="https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"> 
+          <img src="https://img.shields.io/badge/Amazon AWS-232F3E?style=for-the-badge&logo=Amazon AWS&logoColor=white"> 
+          <img src="https://img.shields.io/badge/Elastic Stack-005571?style=for-the-badge&logo=Elastic Stack&logoColor=white"> 
+
       - layout: left
         title: Pusan Natl. Univ.
         sub_title: M.S. with Mathematics
@@ -156,6 +160,11 @@ content:
           Pusan National University, Graduate School,  Department of Mathematics, Master degree
         description: | # this will include new lines to allow paragraphs
           저는 부산대학교 일반대학원 수학과에서 금융수학을 공부하고, 옵션 평가 방법에 대해서 공부하였습니다.
+
+          <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
+          <img src="https://img.shields.io/badge/Latex-008080?style=for-the-badge&logo=Latex&logoColor=white">
+          
+          
           
       - layout: left
         title: Inha Univ.
