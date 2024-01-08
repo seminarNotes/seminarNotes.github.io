@@ -152,7 +152,8 @@ content:
         quote: >
           Pusan National University, Graduate School,  Department of Mathematics, Master degree
         description: | # this will include new lines to allow paragraphs
-          우리FISA 디지털 트레이닝 교육을 수강하고 있습니다. 본 교육을 통해, 데이터 분석 역량, 데이터 처리 역량 등 필수 기술 스택과 데이터 파이프라인 구조(수집, 변환, 저장)에 대해 학습하고 있습니다.
+          현재 우리FISA 디지털 트레이닝 교육을 수강하고 있습니다.
+          교육을 통해, 데이터 분석 역량, 데이터 처리 역량 등 필수 기술 스택과 데이터 파이프라인 구조(수집, 변환, 저장)에 대해 공부하고 있습니다.
 
           <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
           <img src="https://img.shields.io/badge/Mysql-4479A1?style=for-the-badge&logo=Mysql&logoColor=white"> 
@@ -166,8 +167,6 @@ content:
           <img src="https://img.shields.io/badge/Amazon AWS-232F3E?style=for-the-badge&logo=Amazon AWS&logoColor=white"> 
           <img src="https://img.shields.io/badge/Elastic Stack-005571?style=for-the-badge&logo=Elastic Stack&logoColor=white"> 
 
-
-
       - layout: left
         title: Pusan Natl. Univ.
         sub_title: M.S. with Mathematics
@@ -177,12 +176,9 @@ content:
         description: | # this will include new lines to allow paragraphs
           수학과에서 금융 수학을 공부했으며, 파생상품 옵션 평가(Option Pricing)에 대해 연구하였습니다. 특히, 주식 또는 변동성의 움직임을 모델링하는 확률미분방정식에 대해 연구를 하고, 관련된 논문을 작성했습니다.
           또한, 몬테카를로 시뮬레이션과(Monte-Carlo Simulation)과 유한차분법(Finite Difference Method)을 이용한 옵션 가격 결정을 프로그래밍으로 구현하였습니다.
- 
 
           <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
           <img src="https://img.shields.io/badge/Latex-008080?style=for-the-badge&logo=Latex&logoColor=white">
-          
-          
           
       - layout: left
         title: Inha Univ.
@@ -191,7 +187,7 @@ content:
         quote: >
           Pusan National University, Graduate School,  Department of Mathematics, Master degree
         description: | # this will include new lines to allow paragraphs
-          저는 부산대학교 일반대학원 수학과에서 금융수학을 공부하고, 옵션 평가 방법에 대해서 공부하였습니다.
+          
           
   - title: Publications
     layout: text
