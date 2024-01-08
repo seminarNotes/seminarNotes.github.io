@@ -87,7 +87,7 @@ content:
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
-        title: Project1
+        title: Project1:Analysis
         link: https://github.com/seminarNotes/analysis--customer-lifetime-value
         link_text: Go to the link for Project1
         additional_links:
@@ -95,9 +95,11 @@ content:
             icon: fab fa-github
             url: https://github.com/seminarNotes/analysis--customer-lifetime-value
         quote: >
-          판매 내역 데이터와 고객 데이터를 활용하여, EDA분석 및 LTV분석을 한 프로젝트입니다.
+          Analyzing Customer Data and Retail Data for LTV (Lifetime Value) and EDA (Exploratory Data Analysis)
         description: | # this will include new lines to allow paragraphs
-          고객생애가치 LTV는 'Life-Time Value'의 줄임말로, 고객이 평생 동안 기업에게 어느 정도의 금전적 가치를 가져다 주는지를 정량화한 지표를 의미합니다.
+          고객 생애가치(LTV)는 'Life-Time Value'의 줄임말로, 고객이 평생 동안 기업에게 제공하는 금전적 가치를 정량화한 지표입니다. 
+          이 지표는 고객 관리 및 마케팅 전략 수립에 매우 중요한 수치로 간주되며, BG/NBD 및 Gamma-Gamma 모델과 같은 통계 분포 모델을 활용하여 값을 예측합니다. 
+          정확한 예측을 위해서는 모수 추정 단계에서 규제화 값을 고려해야 하며, 본 프로젝트에서는 모수 추정, LTV 값 산출, 그리고 EDA 분석을 수행했습니다.
 
            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"> 
       - layout: left
