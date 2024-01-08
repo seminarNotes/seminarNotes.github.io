@@ -122,21 +122,28 @@ content:
         # quote: >
         #  Short description of the company (optional)
         description: | # this will include new lines to allow paragraphs
-          KIS자산평가, 금융공학연구소에서 파생상품 모듈 개발 및 데이터 산출에 대한 업무를 담당했습니다. 
+          주식 파생상품과 신용 파생상품 평가 로직에 대해 조사를 하고 관련된 모듈을 개발 및 유지보수를 했습니다. 
           제가 주로 맡았던 프로젝트는 다음과 같습니다.
+          
           - Revamping the Option Pricing Data Collection Process
           - Overhauling the Stock Model
           - Modifying the code of the process engine that calculates the default rate
+
+
+
+          
           
           <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"> 
           <img src="https://img.shields.io/badge/Celery-37814A?style=for-the-badge&logo=Celery&logoColor=white"> 
           <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=C&logoColor=white"> 
           <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=MariaDB&logoColor=white"> 
           <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white"> 
-
+          
+          <img src="https://img.shields.io/badge/visualbasic-512BD4?style=for-the-badge&logo=visualbasic&logoColor=white"> 
+          <img src="https://img.shields.io/badge/sourcetree-0052CC?style=for-the-badge&logo=sourcetree&logoColor=white"> 
           <img src="https://img.shields.io/badge/microsoftexcel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white">
           <img src="https://img.shields.io/badge/Notepad++-90E59A.svg?style=for-the-badge&logo=notepad%2B%2B&logoColor=white"> 
-          
+
           
 
            
