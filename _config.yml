@@ -52,13 +52,13 @@ instagram_username: https://www.instagram.com/woojunhui/
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg #Directory of profile image (eg. images/profile.jpg)
 about_content: | # this will include new lines to allow paragraphs
-  👋 인사말
+  👋 인사말  
   안녕하세요? 데이터 엔지니어 우준희입니다.  
   저는 대량의 데이터를 효율적으로 수집, 저장, 처리, 분석하는 것에 관심이 많으며, 이와 관련된 공부를 하고 있습니다. 
 
  
 
-  📚주요 기술 스택 
+  📚주요 기술 스택  
   - python  
     파이썬을 통해 저는 A, B, C를 수행할 수 있습니다.
 
@@ -72,7 +72,7 @@ about_content: | # this will include new lines to allow paragraphs
  
     
 content:
-  - title: Projects # Title for the section
+  - title: Projects 💻 # Title for the section
     layout: list # Type of content section (list/text)
     content:
       - layout: left
@@ -124,7 +124,7 @@ content:
            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"> 
           
           
-  - title: Experience
+  - title: Experience 📰
     layout: list
     content:
       - layout: left
@@ -159,7 +159,7 @@ content:
 
            
           
-  - title: Education
+  - title: Education 📚
     layout: list
     content:
       - layout: left
