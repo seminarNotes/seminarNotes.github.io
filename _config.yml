@@ -58,7 +58,10 @@ about_content: | # this will include new lines to allow paragraphs
 
  
 
-  📚주요 기술 스택  
+  👨‍🎓Expertise
+
+
+  👨🏻‍💻Software
   - Python  
     ML 모델을 학습 및 하이퍼 파라미터를 튜닝하고, 이를 자동화
     업무 자동화 및 스케줄링, 그리고 Celery를 활용하여 분산 처리
