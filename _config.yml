@@ -133,8 +133,8 @@ content:
           <img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=C&logoColor=white"> 
           <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=MariaDB&logoColor=white"> 
           <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white"> 
-          
-          <img src="https://img.shields.io/badge/Notepad++-90E59A?style=for-the-badge&logo=notepad&logoColor=white"> 
+
+          <img src="https://img.shields.io/badge/microsoftexcel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white">
           <img src="https://img.shields.io/badge/Notepad++-90E59A.svg?style=for-the-badge&logo=notepad%2B%2B&logoColor=white"> 
           
           
@@ -175,7 +175,9 @@ content:
         quote: >
           Pusan National University, Graduate School,  Department of Mathematics, Master degree
         description: | # this will include new lines to allow paragraphs
-          저는 부산대학교 일반대학원 수학과에서 금융수학을 공부하고, 옵션 평가 방법에 대해서 공부하였습니다.
+          수학과에서 금융 수학을 공부했으며, 파생상품 옵션 평가(Option Pricing)에 대해 연구하였습니다. 특히, 주식 또는 변동성의 움직임을 모델링하는 확률미분방정식에 대해 연구를 하고, 관련된 논문을 작성했습니다.
+          또한, 몬테카를로 시뮬레이션과(Monte-Carlo Simulation)과 유한차분법(Finite Difference Method)을 이용한 옵션 가격 결정을 프로그래밍으로 구현하였습니다.
+ 
 
           <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
           <img src="https://img.shields.io/badge/Latex-008080?style=for-the-badge&logo=Latex&logoColor=white">
