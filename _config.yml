@@ -53,7 +53,8 @@ instagram_username: woojunhui
 about_profile_image: images/profile.jpg #Directory of profile image (eg. images/profile.jpg)
 about_content: | # this will include new lines to allow paragraphs
   👋 Hello   
-  안녕하세요? 주니어 개발자 우준희입니다.  
+  안녕하세요?  
+  주니어 개발자 우준희입니다.  
   저는 대량의 데이터를 효율적으로 수집, 저장, 처리, 분석하는 것에 관심이 많으며, 이와 관련된 공부를 하고 있습니다. 
 
   👨‍🎓Expertise
@@ -73,18 +74,12 @@ about_content: | # this will include new lines to allow paragraphs
     업무 자동화 및 스케줄링, Celery를 활용하여 분산 처리  
     대규모 데이터 분석, DB 테이블 적재  
 
-  - DBMS
-    DB 테이블 설계
+  - DBMS  
+    Mysql, MariaDB, Oracle
     
-  - AIRFLOW
+  - AIRFLOW  
     Workflow 정의 및 스케줄
-    
-  - Elastic Stack
-    firebeat을 통해 
-
-  
- 
-    
+        
 content:
   - title: Projects 💻 # Title for the section
     layout: list # Type of content section (list/text)
