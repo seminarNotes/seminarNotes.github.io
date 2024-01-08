@@ -187,7 +187,12 @@ content:
         quote: >
           Pusan National University, Graduate School,  Department of Mathematics, Master degree
         description: | # this will include new lines to allow paragraphs
-          
+          수학교육과에서 수치 계산과 관련된 도구를 공부하였습니다.
+
+          <img src="https://img.shields.io/badge/wolframmathematica-DD1100?style=for-the-badge&logo=wolframmathematica&logoColor=white">
+          <img src="https://img.shields.io/badge/matrix-000000?style=for-the-badge&logo=matrix&logoColor=white">
+
+
           
   - title: Publications
     layout: text
