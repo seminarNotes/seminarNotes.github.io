@@ -52,19 +52,21 @@ instagram_username: woojunhui
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg #Directory of profile image (eg. images/profile.jpg)
 about_content: | # this will include new lines to allow paragraphs
-  👋 Hello 
+  👋 Hello   
   안녕하세요? 데이터 엔지니어 우준희입니다.  
   저는 대량의 데이터를 효율적으로 수집, 저장, 처리, 분석하는 것에 관심이 많으며, 이와 관련된 공부를 하고 있습니다. 
 
   👨‍🎓Expertise
-  - Math
-    ML, 데이터 분석에 대한 이론
-    수치해석과 관련된 이론
+  - Mathematics
+    데이터 분석에 필요한 선형대수학과 통계학에 대한 지식
+    데이터 모델링과 수치해석에 대한 지식(모델링, 모수 추정)
+    Backpropagation 등과 같은 ML의 이론을 이해하는 전반적 수학지식
 
-  - CS
-    관련된 소프트웨어 활용과 컴퓨터 지식
-
-
+  - Computer Science
+    Linux와 Docker 활용
+    데이터 구조 및 데이터베이스 관리 시스템(DBMS)
+    빅데이터 기술과 클라우드 컴퓨팅
+    
   👨🏻‍💻Software
   - Python  
     ML 모델을 학습 및 하이퍼 파라미터를 튜닝하고, 이를 자동화
