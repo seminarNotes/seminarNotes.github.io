@@ -80,7 +80,7 @@ content:
                       # other value (or no value) means no border will be displayed
         title: Project1
         link: https://github.com/seminarNotes/analysis--customer-lifetime-value
-        link_text: [프로젝트 상세보기]
+        link_text: Go to the link for Project1
         additional_links:
           - title: seminarNotes/analysis--customer-lifetime-value
             icon: fab fa-github
