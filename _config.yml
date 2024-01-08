@@ -6,7 +6,7 @@ repository: Git repository where your resume will be hosted, only required if yo
 version: 2
 
 # Personal info
-name: 우준희
+name: 안녕하세요, 우준희입니다.👋
 title: Jr. Data Engineer
 email: junhui.woo.math@gmail.com
 # email_title: Email (Email title override)
@@ -25,7 +25,7 @@ github_username:  seminarNotes
 # dribbble_username: jekyll
 # facebook_username: jekyll
 # flickr_username: jekyll
-# instagram_username: jekyll
+instagram_username: https://www.instagram.com/woojunhui/
 # linkedin_username: jekyll
 # xing_username: jekyll
 # pinterest_username: jekyll
