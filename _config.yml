@@ -59,14 +59,19 @@ about_content: | # this will include new lines to allow paragraphs
  
 
   📚주요 기술 스택  
-  - python  
-    파이썬을 통해 저는 A, B, C를 수행할 수 있습니다.
+  - Python  
+    ML 모델을 학습 및 하이퍼 파라미터를 튜닝하고, 이를 자동화
+    업무 자동화 및 스케줄링, 그리고 Celery를 활용하여 분산 처리
+    대규모 데이터를 분석하고, DB에 적재
 
-  - DBMS  
-    DBMS을 통해 저는 A, B, C를 수행할 수 있습니다.
-
-  - ElasticSearch  
-    ElasticSearch을 통해 저는 A, B, C를 수행할 수 있습니다.
+  - DBMS
+    DB 테이블 설계
+    
+  - AIRFLOW
+    Workflow 정의 및 스케줄
+    
+  - Elastic Stack
+    firebeat을 통해 
 
   
  
