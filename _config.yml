@@ -79,8 +79,8 @@ content:
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
         title: Project1
-        # link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-        # link_text: Link Text
+        link: https://github.com/seminarNotes/analysis--customer-lifetime-value
+        link_text: [프로젝트 상세보기]
         additional_links:
           - title: seminarNotes/analysis--customer-lifetime-value
             icon: fab fa-github
