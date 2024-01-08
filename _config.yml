@@ -141,8 +141,13 @@ content:
         quote: >
           Pusan National University, Graduate School,  Department of Mathematics, Master degree
         description: | # this will include new lines to allow paragraphs
-          저는 현재 우리FISA 디지털 트레이닝 교육을 듣고 있습니다. 본 교육을 통해, 데이터 엔지니어링 및 웹 서비스에 대한 교육을 듣고 있습니다.
-          
+          우리FISA 디지털 트레이닝 교육을 수강하고 있습니다. 본 교육을 통해, 데이터 분석 역량, 데이터 처리 역량 등 필수 기술 스택과 데이터 파이프라인 구조(수집, 변환, 저장)에 대해 학습하고 있습니다.
+
+          <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
+          <img src="https://img.shields.io/badge/Mysql-4479A1?style=for-the-badge&logo=Mysql&logoColor=white"> 
+          <img src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"> 
+          <img src="https://img.shields.io/badge/numpy-013243?style=for-the-badge&logo=numpy&logoColor=white"> 
+           
       - layout: left
         title: Pusan Natl. Univ.
         sub_title: M.S. with Mathematics
