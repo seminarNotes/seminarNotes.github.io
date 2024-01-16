@@ -79,6 +79,10 @@ about_content: | # this will include new lines to allow paragraphs
     
   - AIRFLOW  
     Workflow 정의 및 스케줄
+
+  - ELASTIC STACK  
+    데이터 ETL
+
         
 content:
   - title: Projects 💻 # Title for the section
