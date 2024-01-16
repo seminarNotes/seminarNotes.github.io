@@ -122,7 +122,11 @@ content:
            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
            <img src="https://img.shields.io/badge/tensorflow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white"> 
            <img src="https://img.shields.io/badge/Mysql-4479A1?style=for-the-badge&logo=Mysql&logoColor=white"> 
-
+      
+      
+      - layout: left
+        border: weak  # Value of `weak` will display a weak border below this item. # Any 
+                      # other value (or no value) means no border will be displayed
        title: Project3:Engineering
         link: https://github.com/seminarNotes/engineering--elastic-stack
         link_text: Go to the link for Project3
@@ -135,27 +139,13 @@ content:
         description: | # this will include new lines to allow paragraphs
           ELK Stack 및 Elasticsearch는 데이터 처리, 모니터링, 분석, 시각화에 필수적인 도구로, 비정형 데이터 관리 및 분석을 위한 필수 요소입니다.
           Elastic Stack을 활용해서 가상의 로그 데이터를 수집, 변환, 저장, 시각화하여, 로그 데이터로부터 인사이트를 도출하는 작업을 수행하였습니다.
-          
-          
-
+        
            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"> 
-      # - layout: left
-      #   border: weak  # Value of `weak` will display a weak border below this item. # Any 
-      #                 # other value (or no value) means no border will be displayed
-      #   title: Project3
-      #   # link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-      #   # link_text: Link Text
-      #   additional_links:
-      #     - title: Project2-Analysis
-      #       icon: fab fa-github
-      #       url: https://github.com/seminarNotes/analysis--customer-lifetime-value  
-      #   quote: >
-      #     이것은 두번째 프로젝트에 대한 설명입니다.
-      #   description: | # this will include new lines to allow paragraphs
-      #     고객생애가치 LTV는 'Life-Time Value'의 줄임말로, 고객이 평생 동안 기업에게 어느 정도의 금전적 가치를 가져다 주는지를 정량화한 지표를 의미합니다.
-      #      <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"> 
-          
-          
+           <img src="https://img.shields.io/badge/Beats-005571?style=for-the-badge&logo=Beats&logoColor=white"> 
+           <img src="https://img.shields.io/badge/Logstash-85C8C8?style=for-the-badge&logo=Logstash&logoColor=white">
+           <img src="https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=Elasticsearch&logoColor=white">
+           <img src="https://img.shields.io/badge/Kibana-005571?style=for-the-badge&logo=Kibana&logoColor=white">
+
   - title: Experience 📰
     layout: list
     content:
