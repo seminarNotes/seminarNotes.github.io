@@ -127,7 +127,7 @@ content:
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
-       title: Project3:Engineering
+        title: Project3:Engineering
         link: https://github.com/seminarNotes/engineering--elastic-stack
         link_text: Go to the link for Project3
         additional_links:
