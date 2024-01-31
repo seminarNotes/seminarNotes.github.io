@@ -103,12 +103,17 @@ content:
         description: | # this will include new lines to allow paragraphs
           스마트카 내의 수백 개의 IoT 센서로부터 자동차 상태를 모니터링하고, 수많은 차량 상태 정보를 실시간으로 수집하여 해당 데이터를 처리하고 분석하였습니다.
         
-           <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"> 
-           <img src="https://img.shields.io/badge/Beats-005571?style=for-the-badge&logo=Beats&logoColor=white"> 
-           <img src="https://img.shields.io/badge/Logstash-85C8C8?style=for-the-badge&logo=Logstash&logoColor=white">
-           <img src="https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=Elasticsearch&logoColor=white">
-           <img src="https://img.shields.io/badge/Kibana-005571?style=for-the-badge&logo=Kibana&logoColor=white">
-           
+           <img src="https://img.shields.io/badge/Apache Hadoop-66CCFF?style=for-the-badge&logo=Apache Hadoop&logoColor=white"> 
+           <img src="https://img.shields.io/badge/Apache Hive-FDEE21?style=for-the-badge&logo=Apache Hive&logoColor=white"> 
+           <img src="https://img.shields.io/badge/Apache Kafka-231F20?style=for-the-badge&logo=Apache Kafka&logoColor=white"> 
+           <img src="https://img.shields.io/badge/Apache Spark-E25A1C?style=for-the-badge&logo=Apache Spark&logoColor=white"> 
+           <img src="https://img.shields.io/badge/Apache Storm-225593?style=for-the-badge&logo=Apache Storm&logoColor=white"> 
+          
+           <img src="https://img.shields.io/badge/Cloudera-F96702?style=for-the-badge&logo=Cloudera&logoColor=white"> 
+           <img src="https://img.shields.io/badge/FileZilla-BF0000?style=for-the-badge&logo=FileZilla&logoColor=white"> 
+           <img src="https://img.shields.io/badge/CentOS-262577?style=for-the-badge&logo=CentOS&logoColor=white"> 
+           <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"> 
+
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
