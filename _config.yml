@@ -114,6 +114,8 @@ content:
            <img src="https://img.shields.io/badge/CentOS-262577?style=for-the-badge&logo=CentOS&logoColor=white"> 
            <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"> 
 
+           ![datapipeline](https://github.com/seminarNotes/seminarNotes.github.io/tree/master/images/datapipeline.png"datapipeline")
+
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
