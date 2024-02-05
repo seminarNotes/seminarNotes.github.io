@@ -136,6 +136,8 @@ content:
            <img src="https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=Elasticsearch&logoColor=white">
            <img src="https://img.shields.io/badge/Kibana-005571?style=for-the-badge&logo=Kibana&logoColor=white">
 
+           ![kibanadashboard](https://github.com/seminarNotes/engineering--program-real-time-log-processing/tree/main/images/kibanadashboard.gif "kibanadashboard")
+
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
