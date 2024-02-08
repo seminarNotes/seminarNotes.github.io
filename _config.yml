@@ -85,7 +85,7 @@ about_content: | # this will include new lines to allow paragraphs
 
   🏃Current task in progress
   
-  - Cloudera를 통한 Hadoop Ecosystem 구축
+  - [Cloudera를 통한 Hadoop Ecosystem 구축](https://github.com/seminarNotes/engineering--smartcar-real-time-log-processing)
   
   - AWS 환경에서 RDS 및 EC2 내 클러스터 구성
   
