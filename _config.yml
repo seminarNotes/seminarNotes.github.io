@@ -114,7 +114,8 @@ content:
            <img src="https://img.shields.io/badge/CentOS-262577?style=for-the-badge&logo=CentOS&logoColor=white"> 
            <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"> 
 
-           <img src="/images/datapipeline.jpg" alt="datapipeline" width="300" height="200">
+           <img src="/images/pjt1_images1.jpg" alt="pjt1_images1" width="300" height="200">
+           <img src="/images/pjt1_images2.jpg" alt="pjt1_images2" width="300" height="200">
 
 
       - layout: left
@@ -139,7 +140,8 @@ content:
            <img src="https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=Elasticsearch&logoColor=white">
            <img src="https://img.shields.io/badge/Kibana-005571?style=for-the-badge&logo=Kibana&logoColor=white">
 
-           Images ![kibanadashboard](https://github.com/seminarNotes/engineering--program-real-time-log-processing/tree/main/images/kibanadashboard.gif "kibanadashboard")
+           <img src="/images/pjt2_images1.jpg" alt="pjt2_images1" width="300" height="200">
+           <img src="/images/pjt2_images2.jpg" alt="pjt2_images2" width="300" height="200">
 
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
