@@ -101,21 +101,23 @@ content:
         quote: >
            Implementing Real-time Big Data Processing for Vehicle Status Monitoring from IoT Sensors in Smart Cars
         description: | # this will include new lines to allow paragraphs
-          이 프로젝트는 스마트카에 탑재된 수백 개의 IoT 센서로부터 자동차 상태 정보를 실시간으로 모니터링하고 수집하여, 이를 처리 및 분석하는 빅데이터 처리 과제입니다. 각 단계별로 필요한 요구사항을 면밀히 분석한 뒤, 요구 사항을 해결하기 위해 적절한 기술 스택을 선정하여 프로젝트를 성공적으로 구현했습니다. 배치 데이터 처리의 경우, Flume과 HDFS를 활용했으며, 실시간 스트리밍 데이터는 Flume, Kafka, Esper, Storm, Redis를 통해 효율적으로 적재했습니다. 또한, 데이터 마트 구축에는 HBase를 사용했고, 이 과정을 용이하게 만들기 위해 Hue를 통한 브라우저 접근과 Oozie를 이용한 워크플로우 관리를 도입하여 데이터 마트를 구축하고 데이터 적재 작업을 수행했습니다.
-           
-           <img src="/images/pjt1_images1.jpg" alt="pjt1_images1" width="350" height="250">
-           <img src="/images/pjt1_images2.jpg" alt="pjt1_images2" width="350" height="250">
-           
-           <img src="https://img.shields.io/badge/Apache Hadoop-66CCFF?style=for-the-badge&logo=Apache Hadoop&logoColor=white"> 
-           <img src="https://img.shields.io/badge/Apache Hive-FDEE21?style=for-the-badge&logo=Apache Hive&logoColor=white"> 
-           <img src="https://img.shields.io/badge/Apache Kafka-231F20?style=for-the-badge&logo=Apache Kafka&logoColor=white"> 
-           <img src="https://img.shields.io/badge/Apache Spark-E25A1C?style=for-the-badge&logo=Apache Spark&logoColor=white"> 
-           <img src="https://img.shields.io/badge/Apache Storm-225593?style=for-the-badge&logo=Apache Storm&logoColor=white"> 
+          This project involved real-time monitoring and collection of vehicle status information from hundreds of IoT sensors installed in smart cars, followed by processing and analysis using big data technologies. We meticulously analyzed the requirements at each stage and successfully implemented the project by selecting the optimal technology stack. For batch data processing, we utilized Flume and HDFS, while real-time streaming data was efficiently ingested through Flume, Kafka, Esper, Storm, and Redis. Additionally, we used HBase for building data marts, and to facilitate this process, we introduced browser access through Hue and workflow management using Oozie to construct the data marts and perform data ingestion tasks.
           
-           <img src="https://img.shields.io/badge/Cloudera-F96702?style=for-the-badge&logo=Cloudera&logoColor=white"> 
-           <img src="https://img.shields.io/badge/FileZilla-BF0000?style=for-the-badge&logo=FileZilla&logoColor=white"> 
-           <img src="https://img.shields.io/badge/CentOS-262577?style=for-the-badge&logo=CentOS&logoColor=white"> 
-           <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"> 
+          - Related Images:
+            <img src="/images/pjt1_images1.jpg" alt="pjt1_images1" width="350" height="250">
+            <img src="/images/pjt1_images2.jpg" alt="pjt1_images2" width="350" height="250">
+
+          - Related Stacks:
+            <img src="https://img.shields.io/badge/Apache Hadoop-66CCFF?style=for-the-badge&amp;logo=Apache Hadoop&amp;logoColor=white"> 
+            <img src="https://img.shields.io/badge/Apache Hive-FDEE21?style=for-the-badge&amp;logo=Apache Hive&amp;logoColor=white"> 
+            <img src="https://img.shields.io/badge/Apache Kafka-231F20?style=for-the-badge&amp;logo=Apache Kafka&amp;logoColor=white"> 
+            <img src="https://img.shields.io/badge/Apache Spark-E25A1C?style=for-the-badge&amp;logo=Apache Spark&amp;logoColor=white"> 
+            <img src="https://img.shields.io/badge/Apache Storm-225593?style=for-the-badge&amp;logo=Apache Storm&amp;logoColor=white"> 
+          
+            <img src="https://img.shields.io/badge/Cloudera-F96702?style=for-the-badge&amp;logo=Cloudera&amp;logoColor=white"> 
+            <img src="https://img.shields.io/badge/FileZilla-BF0000?style=for-the-badge&amp;logo=FileZilla&amp;logoColor=white"> 
+            <img src="https://img.shields.io/badge/CentOS-262577?style=for-the-badge&amp;logo=CentOS&amp;logoColor=white"> 
+            <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&amp;logo=Spring&amp;logoColor=white"> 
 
            
 
