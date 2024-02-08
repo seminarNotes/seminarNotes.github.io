@@ -77,11 +77,18 @@ about_content: | # this will include new lines to allow paragraphs
   - DBMS  
     Mysql, MariaDB, Oracle
     
-  - AIRFLOW  
+  - Airflow 
     Workflow 정의 및 스케줄
 
-  - ELASTIC STACK  
-    데이터 ETL
+  - Elastic Stack  
+    Log 데이터 수집 및 시각화
+
+  🏃Current task in progress
+  
+  - Cloudera를 통한 Hadoop Ecosystem 구축
+  
+  - AWS 환경에서 RDS 및 EC2 내 클러스터 구성
+  
 
         
 content:
