@@ -135,18 +135,18 @@ content:
         quote: >
            Efficient Real-time Log Data Monitoring and Analysis Using the ELK Stack and Python
         description: | # this will include new lines to allow paragraphs
-          다양한 프로그램, 사물, 애플리케이션은 지속적으로 로그 데이터를 생성하며, 이 데이터는 대부분 실시간으로 모니터링되어 필요한 조치가 취해져야 합니다. 이 과정에서 ELK Stack과 Elasticsearch는 데이터의 처리, 모니터링, 분석, 그리고 시각화를 위한 필수적인 도구로 자리 잡고 있습니다. 특히, 비정형 데이터의 관리 및 분석에 있어서 중요한 역할을 합니다.    
+          다양한 프로그램, 사물, 애플리케이션은 지속적으로 로그 데이터를 생성하며, 이 데이터는 대부분 실시간으로 모니터링되어 필요한 조치가 취해져야 합니다. 이 과정에서 ELK Stack과 Elasticsearch는 데이터의 처리, 모니터링, 분석, 그리고 시각화를 위한 필수적인 도구로 자리 잡고 있습니다. 특히, 비정형 데이터의 관리 및 분석에 있어서 중요한 역할을 합니다. 이러한 맥락에서, Python을 사용하여 가상의 로그 데이터를 생성하고, 이 데이터를 실시간으로 추출하기 위해 Beats를 활용했습니다. 또한, Logstash를 이용해 로그 패턴을 분석한 뒤, 이 데이터를 Elasticsearch(NoSQL 데이터베이스)에 저장했습니다. 저장된 데이터는 Kibana를 사용하여 시각화함으로써, 사용자가 쉽게 인사이트를 얻을 수 있도록 했고, 실시간 로그 데이터에 대한 즉각적인 정보 제공을 위해 Kibana 대시보드를 구성했습니다. 이 전체 과정은 실시간 데이터 모니터링과 분석에 있어서 매우 효과적인 시스템을 구축하는 데 기여했습니다.    
           
-           이러한 맥락에서, Python을 사용하여 가상의 로그 데이터를 생성하고, 이 데이터를 실시간으로 추출하기 위해 Beats를 활용했습니다. 또한, Logstash를 이용해 로그 패턴을 분석한 뒤, 이 데이터를 Elasticsearch(NoSQL 데이터베이스)에 저장했습니다. 저장된 데이터는 Kibana를 사용하여 시각화함으로써, 사용자가 쉽게 인사이트를 얻을 수 있도록 했고, 실시간 로그 데이터에 대한 즉각적인 정보 제공을 위해 Kibana 대시보드를 구성했습니다. 이 전체 과정은 실시간 데이터 모니터링과 분석에 있어서 매우 효과적인 시스템을 구축하는 데 기여했습니다.  
-           
-           <img src="/images/pjt2_images1.jpg" alt="pjt2_images1" width="350" height="250">
-           <img src="/images/pjt2_images2.jpg" alt="pjt2_images2" width="350" height="250">
-           
-           <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"> 
-           <img src="https://img.shields.io/badge/Beats-005571?style=for-the-badge&logo=Beats&logoColor=white"> 
-           <img src="https://img.shields.io/badge/Logstash-85C8C8?style=for-the-badge&logo=Logstash&logoColor=white">
-           <img src="https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=Elasticsearch&logoColor=white">
-           <img src="https://img.shields.io/badge/Kibana-005571?style=for-the-badge&logo=Kibana&logoColor=white">  
+          - Related Images:               
+            <img src="/images/pjt2_images1.jpg" alt="pjt2_images1" width="350" height="250">
+            <img src="/images/pjt2_images2.jpg" alt="pjt2_images2" width="350" height="250">
+
+          - Related Stacks:               
+            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"> 
+            <img src="https://img.shields.io/badge/Beats-005571?style=for-the-badge&logo=Beats&logoColor=white"> 
+            <img src="https://img.shields.io/badge/Logstash-85C8C8?style=for-the-badge&logo=Logstash&logoColor=white">
+            <img src="https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=Elasticsearch&logoColor=white">
+            <img src="https://img.shields.io/badge/Kibana-005571?style=for-the-badge&logo=Kibana&logoColor=white">  
 
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
