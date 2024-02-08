@@ -114,7 +114,9 @@ content:
            <img src="https://img.shields.io/badge/CentOS-262577?style=for-the-badge&logo=CentOS&logoColor=white"> 
            <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white"> 
 
-           ![datapipeline](/images/datapipeline.jpg "datapipeline")
+           # ![datapipeline](/images/datapipeline.jpg "datapipeline")
+           <img src="/images/datapipeline.jpg" alt="datapipeline" width="300" height="200">
+
 
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
