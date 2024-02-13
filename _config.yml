@@ -210,7 +210,7 @@ content:
         description: | # this will include new lines to allow paragraphs
           주식 파생상품과 신용 파생상품 평가 로직에 대해 조사를 하고 관련된 모듈을 개발 및 유지보수를 했습니다. 
           제가 주로 맡았던 프로젝트는 다음과 같습니다.  
-         projects:
+        projects:
           - title: "(데이터 엔지니어링) 주식 파생상품(옵션) 데이터 파이프라인 구축"
             details: "주식 파생상품의 시장가를 수집, 저장하는 업무를 자동화하기 위해 Python, DBMS 등을 활용하여 데이터 파이프라인을 구축하고 유지보수하였습니다."
           - title: "(데이터 모델링 및 분석) 주식 변동성 평가 모델 구축"
