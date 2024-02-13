@@ -58,18 +58,13 @@ about_content: | # this will include new lines to allow paragraphs
   현재는 우리FIS 아카데미의 AI엔지니어링 과정을 이수하고 있으며, 이 교육 과정에서 Python, JAVA, ELK, AWS, Docker 등 데이터 분석 및 처리, 데이터 파이프라인 구축에 필요한 다양한 기술 학습을 진행 중입니다. 교육과 별개로, 데이터 엔지니어로서의 성장을 목표로 Cloudera 기반의 Hadoop Ecosystem 구축에도 도전했습니다. 이를 통해 Flume, Kafka, Storm, Esper, HDFS, Redis, HBase, Hue를 활용하여 실시간 및 대용량 데이터 처리와 저장을 위한 파이프라인을 구축했습니다. 또한, ELK 스택을 이용해 가상의 로그 데이터를 처리하고, Airflow와 Superset을 활용하여 크롤링한 데이터를 시각화하는 프로젝트를 진행했습니다.
 
   저는 새로운 기술을 접하는 것에 주저하지 않으며, 자신감을 가지고 문제를 해결해 나가는 과정에서 조직에 기여하고자 합니다. 이러한 다양한 경험을 통해 제가 보다 심도 있는 데이터 엔지니어링 역량을 갖출 수 있도록 노력하고 있습니다.
-  
-  👨‍🎓Expertise
-  - Mathematics  
-    데이터 분석에 필요한 선형대수학과 통계학에 대한 지식  
-    데이터 모델링과 수치해석에 대한 지식(모델링, 모수 추정)  
-    Backpropagation 등과 같은 ML의 이론을 이해하는 전반적 수학지식  
 
-  - Computer Science  
-    Linux와 Docker 활용  
-    데이터 구조 및 데이터베이스 관리 시스템(DBMS)  
-    빅데이터 기술과 클라우드 컴퓨팅  
-    
+  🏃Current tasks in progress
+  
+  - [Cloudera를 통한 Hadoop Ecosystem 구축](https://github.com/seminarNotes/engineering--smartcar-real-time-log-processing)
+  
+  - AWS 환경에서 RDS 및 EC2 내 클러스터 구성
+
   👨🏻‍💻Software
   - Python  
     ML 모델 학습 및 하이퍼 파라미터 튜닝  
@@ -85,11 +80,22 @@ about_content: | # this will include new lines to allow paragraphs
   - Elastic Stack  
     Log 데이터 수집 및 시각화
 
-  🏃Current tasks in progress
+  - Linux, Docker
+    
+  👨‍🎓Expertise
+  - Mathematics  
+    데이터 분석에 필요한 선형대수학과 통계학에 대한 지식  
+    데이터 모델링과 수치해석에 대한 지식(모델링, 모수 추정)  
+    Backpropagation 등과 같은 ML의 이론을 이해하는 전반적 수학지식  
+
+  - Computer Science  
+    Linux와 Docker 활용  
+    데이터 구조 및 데이터베이스 관리 시스템(DBMS)  
+    빅데이터 기술과 클라우드 컴퓨팅  
+    
   
-  - [Cloudera를 통한 Hadoop Ecosystem 구축](https://github.com/seminarNotes/engineering--smartcar-real-time-log-processing)
+
   
-  - AWS 환경에서 RDS 및 EC2 내 클러스터 구성
   
 
         
