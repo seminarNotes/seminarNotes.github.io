@@ -91,12 +91,6 @@ about_content: | # this will include new lines to allow paragraphs
     데이터 구조 및 데이터베이스 관리 시스템(DBMS)  
     빅데이터 기술과 클라우드 컴퓨팅  
     
-  
-
-  
-  
-
-        
 content:
   - title: pilot Projects 💻 # Title for the section
     layout: list # Type of content section (list/text)
@@ -131,9 +125,6 @@ content:
             <img src="https://img.shields.io/badge/FileZilla-BF0000?style=for-the-badge&amp;logo=FileZilla&amp;logoColor=white"> 
             <img src="https://img.shields.io/badge/CentOS-262577?style=for-the-badge&amp;logo=CentOS&amp;logoColor=white"> 
             <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&amp;logo=Spring&amp;logoColor=white"> 
-
-           
-
 
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
@@ -230,9 +221,7 @@ content:
               <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=MariaDB&logoColor=white"> 
               <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white"> 
               <img src="https://img.shields.io/badge/microsoftexcel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white">
-
-
-          
+ 
           - **데이터 모델(주식 변동성 평가 모델) 구축**  
             - Duration:  
               2022.07. - 2023.02.  
@@ -243,9 +232,7 @@ content:
               <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=MariaDB&logoColor=white">
               <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white">
               <img src="https://img.shields.io/badge/microsoftexcel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white">
-
-
-            
+    
           - **데이터 계산 엔진 및 데이터 검증 시스템 개선**  
             - Duration:  
               2022.11. - 2023.07.  
@@ -311,8 +298,7 @@ content:
           <img src="https://img.shields.io/badge/wolframmathematica-DD1100?style=for-the-badge&logo=wolframmathematica&logoColor=white">
           <img src="https://img.shields.io/badge/matrix-000000?style=for-the-badge&logo=matrix&logoColor=white">
           <img src="https://img.shields.io/badge/microsoftexcel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white">
-
-          
+    
   - title: Publications 📝
     layout: text
     content: | # this will include new lines to allow paragraphs
