@@ -50,7 +50,7 @@ instagram_username: woojunhui
 
 # About Section
 # about_title: About Me (Use this to override about section title)
-about_profile_image: images/blog_profile.jpg #Directory of profile image (eg. images/profile.jpg)
+about_profile_image: https://github.com/seminarNotes/seminarNotes/images/github-profile.png #Directory of profile image (eg. images/profile.jpg)
 about_content: | # this will include new lines to allow paragraphs
   👋 Hello   
   안녕하세요, 저는 2년 차 데이터 엔지니어 우준희입니다. 저는 석사 과정에서 수학(파생상품 평가)을 전공하였습니다. 이러한 배경을 바탕으로 제 첫 직장에서 금융 데이터 분석 분야에 발을 들였고, 시장 가격을 수집, 저장, 모델링하는 업무를 맡게 되었습니다. 이 과정에서 데이터 수집, 가공, 저장, 모델링, 시각화, 메일링 등의 작업을 수행하기 위해 Python(특히 Celery, apscheduler, win32com 라이브러리), 그리고 Oracle과 MariaDB와 같은 DBMS를 학습하고 업무를 수행하였습니다. 이 경험이 저를 데이터 엔지니어링이라는 길로 이끌었습니다.
