@@ -207,14 +207,13 @@ footer {
 }
 
 .about-video {
+  max-width: 300px;       /* 절대 크기 지정 */
   width: 100%;
-  display: flex;       /* 비디오를 가운데 정렬하기 위해 */
-  justify-content: center;
+  margin: 0 auto;         /* 가운데 정렬 */
 }
 
 .about-video video {
-  width: 200px;        /* 절대 크기 지정 */
-  max-width: 100%;     /* 화면 좁아지면 줄어듦 */
+  width: 100%;            /* 부모 크기에 맞춤 */
   height: auto;
   display: block;
 }
