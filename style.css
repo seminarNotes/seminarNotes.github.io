@@ -194,3 +194,95 @@ footer {
   height: auto;
   display: block;
 }
+
+
+/* =========================
+   About Videos (2-column)
+========================= */
+.about-video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.about-video {
+  max-width: 100%;
+}
+
+.about-video video {
+  width: 100%;
+  height: auto;
+}
+
+/* =========================
+   Mobile: stack videos
+========================= */
+@media (max-width: 768px) {
+  .about-video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================
+   Paper Preview Grid (TUNED)
+========================= */
+.paper-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(260px, 1fr));
+  gap: 5px;                /*  여백 축소 */
+  margin-top: 12px;
+}
+
+.paper-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Paper thumbnail */
+.paper-item img {
+  width: 100%;
+  max-width: 360px;         /*  핵심: 크기 확대 */
+  aspect-ratio: 1 / 1.414; /* A4 */
+  object-fit: contain;
+  border: 1px solid #2a2a2a;
+  background: #ffffff;
+}
+
+.paper-item figcaption {
+  margin-top: 6px;
+  font-size: 0.78rem;       /* 약간 키움 */
+  color: #aaaaaa;
+  text-align: center;
+  line-height: 1.35;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 1200px) {
+  .paper-preview-grid {
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .paper-preview-grid {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .paper-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .paper-item img {
+    max-width: 420px;       /* 모바일에서는 크게 */
+  }
+}
+
+
+
