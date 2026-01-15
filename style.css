@@ -207,20 +207,22 @@ footer {
 }
 
 .about-video {
-  max-width: 50%;
-  width: 50%;
-  display: block;
+  width: 100%;
+  display: flex;       /* 비디오를 가운데 정렬하기 위해 */
+  justify-content: center;
 }
 
+.about-video video {
+  width: 200px;        /* 절대 크기 지정 */
+  max-width: 100%;     /* 화면 좁아지면 줄어듦 */
+  height: auto;
+  display: block;
+}
 /* .about-video video {
   width: 100%;
   height: auto;
 } */
-.about-video video {
-  width: 50%;
-  height: auto;
-  display: block;
-}
+
 
 /* =========================
    Mobile: stack videos
