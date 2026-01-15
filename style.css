@@ -210,9 +210,13 @@ footer {
   max-width: 100%;
 }
 
-.about-video video {
+/* .about-video video {
   width: 100%;
   height: auto;
+} */
+.about-video {
+  max-width: 100%;
+  display: block;
 }
 
 /* =========================
@@ -242,13 +246,19 @@ footer {
 }
 
 /* Paper thumbnail */
-.paper-item img {
+/* .paper-item img {
   width: 100%;
-  max-width: 360px;         /*  핵심: 크기 확대 */
-  aspect-ratio: 1 / 1.414; /* A4 */
+  max-width: 360px;         
+  aspect-ratio: 1 / 1.414;
   object-fit: contain;
   border: 1px solid #2a2a2a;
   background: #ffffff;
+} */
+.paper-item img {
+  width: 100%;
+  max-width: 360px;
+  height: auto; /* aspect-ratio 대체 */
+  object-fit: contain;
 }
 
 .paper-item figcaption {
