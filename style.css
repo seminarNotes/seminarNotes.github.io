@@ -1,111 +1,106 @@
-body {
-    margin: 0;
-    font-family: "Georgia", "Times New Roman", serif;
-    background: #ffffff;
-    color: #111;
-  }
-  
-  .layout {
-    display: flex;
-    max-width: 1100px;
-    margin: 40px auto;
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    width: 260px;
-    padding: 20px;
-    border-right: 1px solid #ddd;
-    /* text-align: center; */
-    text-align: left;
-  }
-  
-  .profile {
-    width: 250px;
-    border-radius: 75%;
-    margin-bottom: 15px;
-  }
-  
-  .sidebar h1 {
-    font-size: 1.5em;
-    margin-bottom: 5px;
-  }
-  
-  .role {
-    font-size: 0.95em;
-    color: #555;
-  }
-  
-  .info, .links {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-  }
-  
-  .info li, .links li {
-    margin-bottom: 8px;
-  }
-  
-  .links a {
-    text-decoration: none;
-    color: #0056b3;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Main content */
-  .content {
-    flex: 1;
-    padding: 0 40px;
-  }
-  
-  section {
-    margin-bottom: 40px;
-  }
-  
-  h2 {
-    font-size: 1.4em;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-  }
-  
-  .pub-list {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  .pub-list li {
-    margin-bottom: 18px;
-    padding-left: 1.6em;   /* 들여쓰기 기준 */
-    text-indent: -1.6em;   /* 첫 줄을 왼쪽으로 당김 */
-  }
-  
-  
-
-
 /* =========================
-   Dark Theme
+   Global
 ========================= */
 body {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", serif;
   background: #121212;
   color: #e6e6e6;
 }
 
+/* =========================
+   Layout
+========================= */
+.layout {
+  display: flex;
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+/* =========================
+   Sidebar
+========================= */
 .sidebar {
+  width: 260px;
+  padding: 20px;
   border-right: 1px solid #2a2a2a;
+  text-align: left;
 }
 
 .profile {
+  width: 180px;
+  border-radius: 50%;
+  margin-bottom: 15px;
   border: 2px solid #2a2a2a;
 }
 
+.sidebar h1 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
 .role {
+  font-size: 0.95em;
   color: #aaaaaa;
 }
 
-h2 {
-  border-bottom: 1px solid #2a2a2a;
+.info,
+.links {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
 }
 
+.info li,
+.links li {
+  margin-bottom: 8px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #7aa2f7;
+  font-family: Arial, sans-serif;
+}
+
+.links a:hover {
+  color: #a5b4fc;
+}
+
+/* =========================
+   Main Content
+========================= */
+.content {
+  flex: 1;
+  padding: 0 40px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 1.4em;
+  border-bottom: 1px solid #2a2a2a;
+  padding-bottom: 5px;
+}
+
+/* =========================
+   Publication / List Style
+========================= */
+.pub-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.pub-list li {
+  margin-bottom: 18px;
+  padding-left: 1.6em;   /* hanging indent 기준 */
+  text-indent: -1.6em;
+}
+
+/* =========================
+   Links
+========================= */
 a {
   color: #7aa2f7;
 }
@@ -114,14 +109,8 @@ a:hover {
   color: #a5b4fc;
 }
 
-footer {
-  border-top: 1px solid #2a2a2a;
-  color: #aaaaaa;
-}
-
-  
 /* =========================
-   Tech Stack Layout
+   Tech Stack
 ========================= */
 .tech-grid {
   display: grid;
@@ -145,4 +134,63 @@ footer {
 
 .tech-item span {
   font-size: 0.85rem;
+}
+
+/* =========================
+   Footer (optional)
+========================= */
+footer {
+  border-top: 1px solid #2a2a2a;
+  color: #aaaaaa;
+  padding-top: 12px;
+  font-size: 0.85rem;
+}
+
+/* =========================
+   Responsive (Mobile)
+========================= */
+@media (max-width: 768px) {
+
+  .layout {
+    flex-direction: column;
+    margin: 16px;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #2a2a2a;
+    text-align: center;
+  }
+
+  .profile {
+    width: 120px;
+    margin: 0 auto 12px auto;
+  }
+
+  .content {
+    padding: 16px 0;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* =========================
+   Header Banner
+========================= */
+.header-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
