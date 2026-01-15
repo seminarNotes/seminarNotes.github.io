@@ -207,8 +207,8 @@ footer {
 }
 
 .about-video {
-  max-width: 100%;
-  width: 100%;
+  max-width: 50%;
+  width: 50%;
   display: block;
 }
 
@@ -217,7 +217,7 @@ footer {
   height: auto;
 } */
 .about-video video {
-  width: 100%;
+  width: 50%;
   height: auto;
   display: block;
 }
