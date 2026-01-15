@@ -207,7 +207,7 @@ footer {
 }
 
 .about-video {
-  max-width: 300px;       /* 절대 크기 지정 */
+  max-width: 500px;       /* 절대 크기 지정 */
   width: 100%;
   margin: 0 auto;         /* 가운데 정렬 */
 }
