@@ -350,3 +350,48 @@ a.sidebar-item {
 a.sidebar-item:hover {
   color: #7bb8ff;
 }
+
+/* ===== Project Accordion ===== */
+.project-box {
+  background-color: #1f1f1f;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+/* clickable title area */
+.project-summary {
+  cursor: pointer;
+}
+
+.project-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #eaeaea;
+}
+
+.project-meta {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  margin-top: 4px;
+}
+
+.project-keywords {
+  font-size: 0.85rem;
+  color: #8ab4f8;
+  margin-top: 6px;
+}
+
+/* hidden content */
+.project-detail {
+  display: none;
+  margin-top: 14px;
+  color: #d6d6d6;
+  line-height: 1.6;
+}
+
+/* open state */
+.project-box.open .project-detail {
+  display: block;
+}
