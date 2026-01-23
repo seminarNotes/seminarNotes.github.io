@@ -1,0 +1,115 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Junhui Woo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <!-- Header Banner -->
+  <div class="header-banner">
+    <img
+      src="https://capsule-render.vercel.app/api?type=waving&color=20:0000ff,120:00ff00&height=100&section=header&text=JunhuiWoo&fontSize=50&fontAlign=79&fontAlignY=30&animation=fadeIn&fontColor=000000&desc=Engineer&descSize=20&rotate=0&descAlign=80&descAlignY=55"
+      alt="header"
+    >
+  </div>
+
+  
+  <div class="layout">
+    <!-- Sidebar -->
+    <div id="sidebar"></div>
+
+    <!-- Main Content -->
+    <!-- Main Content -->
+    <!-- Main Content -->
+    <main class="content">  
+      <section>
+        <h2>💬 Conference Talks & Posters</h2>
+        <ul class="pub-list">
+      
+          <li>
+            [<a href="https://2025.iccas.org/">T1</a>]
+            <strong>Nonlinear MPC with RNN-Based Neural ODEs Trained on Trajectory Tracking Demonstrations</strong><br>
+            25th International Conference on Control, Automation and Systems (ICCAS 2025) <br>
+            Incheon, Republic of Korea<br>
+            <em>Poster Presentation</em>, November 4, 2025.
+          </li>
+      
+          <li>
+            [<a href="https://www.iros25.org/">T2</a>]
+            <strong>Nonlinear MPC Using LSTM-Based Neural ODEs Trained on Trajectory Tracking Demonstrations</strong><br>
+            IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2025) <br>
+            Hangzhou, China<br>
+            <em>Poster Presentation</em>, October 22, 2025.
+          </li>
+      
+          <li>
+            [T3]
+            <strong>NeuralODE-LSTM 기반 오차 동역학 모델을 활용한 비선형 MPC에 의한 모바일 로봇 경로 추적</strong><br>
+            The 56th Summer Conference of the Korean Institute of Electrical Engineers (KIEE 2025)<br>
+            Busan, Republic of Korea<br>
+            <em>Oral Presentation</em>, July 18, 2025.
+          </li>
+      
+          <li>
+            [<a href="https://ksiam.org/Conference/ConferenceView.asp?AC=0&CODE=CC20211003&B_CATE=BBC1">T4</a>]
+            <strong>금융시장지수의 국내 주택매매시장 적용가능성 연구</strong><br>
+            Annual Meeting of the Korean Society for Industrial and Applied Mathematics (KSIAM 2019) <br>
+            Yeosu, Republic of Korea<br>
+            <em>Poster Presentation</em>, November 9, 2019.
+          </li>
+      
+        </ul>
+
+        <div class="paper-preview-grid">
+
+          <figure class="paper-item">
+            <a href="./assets/2025ICCAS_poster.pdf" target="_blank">
+              <img src="./assets/2025ICCAS_poster.png" alt="ICCAS 2025 Poster Preview">
+            </a>
+            <figcaption>[T1] ICCAS 2025<br>Conference Poster</figcaption>
+          </figure>
+
+          <figure class="paper-item">
+            <a href="./assets/2025IROS_poster.pdf" target="_blank">
+              <img src="./assets/2025IROS_poster.png" alt="IROS 2025 Poster Preview">
+            </a>
+            <figcaption>[T2] IROS 2025<br>Conference Poster</figcaption>
+          </figure>
+
+          <figure class="paper-item">
+            <a href="./assets/2025IROS.pdf" target="_blank">
+              <img src="./assets/2025IROS.png" alt="IROS 2025 Extended Abstract Preview">
+            </a>
+            <figcaption>[T2] IROS 2025<br>Extended Abstract</figcaption>
+          </figure>
+
+          <figure class="paper-item">
+            <a href="./assets/2025KIEE.pdf" target="_blank">
+              <img src="./assets/2025KIEE.png" alt="KIEE 2025 Extended Abstract Preview">
+            </a>
+            <figcaption>[T3] KIEE 2025<br>Extended Abstract</figcaption>
+          </figure>
+
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    fetch("../includes/sidebar.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("sidebar").innerHTML = html;
+      });
+  </script>
+
+</body>
+</html>

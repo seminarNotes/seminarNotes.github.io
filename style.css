@@ -305,3 +305,48 @@ footer {
 
 
 
+/* Divider */
+.sidebar-divider {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 16px 0;
+}
+
+/* Section label */
+.sidebar-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #aaa;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/* Unified item */
+.sidebar-item {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  color: #fff;              /* 기본은 흰색 */
+  text-decoration: none;
+}
+
+/* Badges */
+.sidebar-badges a {
+  display: inline-block;
+  margin-right: 6px;
+  margin-top: 6px;
+}
+
+.sidebar-link:hover {
+  color: #000;
+}
+
+/* Link color */
+a.sidebar-item {
+  color: #4da3ff;           /* 링크만 파랑 */
+}
+
+a.sidebar-item:hover {
+  color: #7bb8ff;
+}
