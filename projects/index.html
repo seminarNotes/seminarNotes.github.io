@@ -1,4 +1,3 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,51 +31,126 @@
     <main class="content">
 
       <section>
-        <h2>📑 Projects</h2>
+        <h2>📑 Industry Projects</h2>
+          
           <div class="project-box" onclick="this.classList.toggle('open')">
-
-            <!-- 접힌 상태에서 보이는 영역 -->
             <div class="project-summary">
               <div class="project-title">
-                Neural ODE-Based MPC for Heat Treatment
+                Python-based Financial Data ETL Pipeline Development
               </div>
+
               <div class="project-meta">
-                2024.09 – 2025.01 | 물리지능연구실
+                2022.04 – 2022.07 | KISpricing Financial Engineering Research Group
               </div>
-              <div class="project-keywords">
-                Keywords : MPC, Neural ODE, ESO, Heat Process
-              </div>
+
+              <button type="button" class="project-toggle-btn">Click Details</button>
             </div>
 
-            <!-- 펼쳐졌을 때만 보이는 영역 -->
             <div class="project-detail">
+              <h3>1. Project Overview</h3>
+              <ul class="detail-list">
+                <li>Project Name : Financial Market Data Automated Collection and Storage Pipeline Development</li>
+                <li>Project Period : April 2022 - July 2022</li>
+                <li>Role : Sole Designer and Developer</li>
+                <li>Tech Stack : Python, Celery, APScheduler, MariaDB, Oracle, Excel Premium API</li>
+              </ul>
+
+              <h3>2. Project Objective</h3>
               <p>
-                본 프로젝트는 실제 열처리 공정 로그 데이터를 기반으로
-                ARX 모델 식별, ESO 기반 외란 추정,
-                그리고 MPC 제어기를 통합하여
-                목표 달성 기반 온도 스케줄링을 구현한 연구이다.
+                The main objective was to automate the collection of stock derivatives market data, which had previously been manually collected through external vendors, in order to improve data collection stability and quality while reducing costs.
               </p>
 
-              <figure>
-                <img src="./assets/project/tracking.png"
-                    style="width:100%; border-radius:6px;">
-                <figcaption>Temperature tracking performance</figcaption>
-              </figure>
+              <h3>3. Key Implementation Details</h3>
+              <ul class="detail-list">
+                <li><strong>Data Collection Automation</strong>: Built an automated pipeline to collect KOSPI and HSCEI options market data using CHECK Expert API and Excel Premium API</li>
+                <li><strong>ETL Process Design</strong>: Designed and implemented the full ETL (Extract, Transform, Load) pipeline, including text format conversion, transfer to processing servers, and final database storage</li>
+                <li><strong>Scheduling and Task Management</strong>: Efficiently managed job scheduling and parallel processing using Celery and APScheduler</li>
+                <li><strong>Quality Validation and Documentation</strong>: Implemented data quality validation processes and created full system specification documentation to ensure maintainability</li>
+              </ul>
 
-              <video src="./assets/project/demo.mp4"
-                    controls muted
-                    style="width:100%; border-radius:6px;"></video>
+              <h3>4. Outcomes and Impact</h3>
+              <ul class="detail-list">
+                <li><strong>Cost Reduction</strong>: Achieved annual cost savings of approximately 8,268 GBP (≈ 13,165,000 KRW based on 2022 average exchange rate of 1 GBP ≈ 1,592.31 KRW)</li>
+                <li><strong>Data Quality Improvement</strong>: Improved data quality by approximately <strong>24.45%</strong> through automated collection and validation processes</li>
+              </ul>
+              
+              <h3>5. Technology Stack Used</h3>
+              <p>
+                Python, Celery, APScheduler, MariaDB, Oracle, Excel Premium API
+              </p>
             </div>
           </div>
 
 
+          <div class="project-box" onclick="this.classList.toggle('open')">
+            <div class="project-summary">
+              <div class="project-title">
+                SABR-based Stock Option Volatility Valuation Model Automation
+              </div>
 
+              <div class="project-meta">
+                2022.07 – 2023.02 | KISpricing Financial Engineering Research Group
+              </div>
+
+              <button type="button" class="project-toggle-btn">Click Details</button>
+            </div>
+
+            <div class="project-detail">
+              <h3>1. Project Overview</h3>
+              <ul class="detail-list">
+                <li>Project Name : SABR-based Stock Option Volatility Valuation Model Automation</li>
+                <li>Project Period : July 2022 - February 2023</li>
+                <li>Role : Model transition design and automation logic implementation</li>
+                <li>Tech Stack : Python, Excel VBA, MariaDB, Oracle, Telegram Bot (API)</li>
+              </ul>
+
+              <h3>2. Project Objective</h3>
+              <p>
+                The existing Excel VBA-based Log-Normal Mixture volatility model had a large number of parameters and strong nonlinearity,
+                frequently leading to local-minima issues during calibration. As a result, manual parameter adjustments by users were an essential
+                part of the workflow. This project aimed to improve the stability of volatility-curve generation and enable fully automated operations
+                by transitioning the valuation framework to a SABR-based approach, which uses fewer parameters and provides a more interpretable curve structure.
+              </p>
+
+              <h3>3. Key Implementation Details</h3>
+              <ul class="detail-list">
+                <li><strong>Volatility model transition</strong>: Migrated from the existing mixture-model framework to a SABR-based volatility surface generation pipeline, reducing the parameter count and improving calibration stability</li>
+                <li><strong>Automated parameter calibration logic</strong>: Converted user experience-based manual adjustment rules into a rule-based algorithm to establish a fully automated calibration process</li>
+                <li><strong>Python-based volatility generation automation</strong>: Replaced the Excel VBA calculation workflow with a Python-based computation engine to automatically generate and calibrate volatility curves</li>
+                <li><strong>Operational automation system</strong>: Implemented an end-to-end automation pipeline including volatility generation, database storage, curve visualization output to the server, and Telegram notifications for summarized results</li>
+              </ul>
+
+              <h3>4. Outcomes and Impact</h3>
+              <ul class="detail-list">
+                <li><strong>Process time reduction</strong>: Reduced the time required for volatility-curve generation and validation from approximately 5 hours to about 30 minutes (≈ 90% reduction)</li>
+                <li><strong>Improved automation level</strong>: Converted a semi-automated workflow with manual adjustments into a fully automated system</li>
+                <li><strong>Enhanced operational stability</strong>: Improved reproducibility and stability of volatility curve generation by reducing the number of calibration parameters</li>
+                <li><strong>Infrastructure efficiency improvement</strong>: Optimized data storage architecture to improve server storage utilization efficiency</li>
+              </ul>
+              
+              <h3>5. Technology Stack Used</h3>
+              <p>
+                Python, Excel VBA, MariaDB, Oracle, Telegram Bot (API)
+              </p>
+            </div>
           </div>
 
+          <h2>📑 Academic & Personal Projects</h2>
 
 
 
-      </section>
+
+
+
+
+
+
+
+          
+        </section>
+
+
+
     </main>
   </div>
 

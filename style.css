@@ -351,47 +351,110 @@ a.sidebar-item:hover {
   color: #7bb8ff;
 }
 
+
+
+
 /* ===== Project Accordion ===== */
 .project-box {
   background-color: #1f1f1f;
   border: 1px solid #2a2a2a;
-  border-radius: 8px;
-  padding: 16px 20px;
+  border-radius: 10px;
+  padding: 18px 22px;
   margin-bottom: 16px;
+  transition: border-color 0.15s ease;
 }
 
-/* clickable title area */
+.project-box:hover {
+  border-color: #3a3a3a;
+}
+
+/* clickable area */
 .project-summary {
   cursor: pointer;
 }
 
 .project-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #eaeaea;
+  font-size: 1.12rem;
+  font-weight: 750;
+  color: #f1f1f1;
+  letter-spacing: 0.2px;
 }
 
 .project-meta {
-  font-size: 0.9rem;
-  color: #b0b0b0;
-  margin-top: 4px;
-}
-
-.project-keywords {
-  font-size: 0.85rem;
-  color: #8ab4f8;
+  font-size: 0.92rem;
+  color: #b7b7b7;
   margin-top: 6px;
 }
 
-/* hidden content */
+/* ===== Toggle button (visual) ===== */
+.project-toggle-btn {
+  margin-top: 14px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid #ffffff;
+  background-color: #04207a;
+  color: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+/* ===== Detail area ===== */
 .project-detail {
   display: none;
-  margin-top: 14px;
-  color: #d6d6d6;
-  line-height: 1.6;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #2a2a2a;
+  color: #dedede;
+  line-height: 1.8;
 }
 
 /* open state */
 .project-box.open .project-detail {
   display: block;
 }
+
+/* Detail section headings: visual hierarchy */
+.project-detail h3 {
+  margin: 14px 0 8px 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #171717;
+  border: 1px solid #2a2a2a;
+  color: #f0f0f0;
+  font-size: 0.98rem;
+  font-weight: 850;
+  position: relative;
+}
+
+.project-detail h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  border-radius: 3px;
+  background: #2b6cff;
+}
+
+/* Detail lists: unify indent and spacing */
+.detail-list {
+  margin: 8px 0 0 0;
+  padding-left: 18px;
+  color: #d8d8d8;
+}
+
+.detail-list li {
+  margin: 6px 0;
+}
+
+.detail-list li::marker {
+  color: #7d7d7d;
+}
+
+.project-detail p {
+  margin: 6px 0 0 0;
+  color: #d8d8d8;
+}
+
