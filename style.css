@@ -204,55 +204,79 @@ footer {
 ========================= */
 .about-video-grid {
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   margin-top: 16px;
-  align-items: start;
+  align-items: stretch;
 }
 
+/* 왼쪽 / 오른쪽 컬럼 */
 .about-video-column {
   width: 100%;
+  margin: 0;
 }
 
-.about-video-column.left {
-  max-width: 520px;
-}
-
+/* 오른쪽 컬럼: 위아래 2행을 동일 높이로 강제 */
 .about-video-column.right {
-  max-width: 520px;
+  display: grid;
+  grid-template-rows: 1fr auto; /* video stack + caption */
+  row-gap: 10px;
 }
 
+/* 오른쪽 영상 2개 스택 */
 .about-video-stack {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  gap: 16px;
+  gap: 20px;                    /* 두 영상 사이 공백 */
+  height: 100%;
 }
 
+/* 공통 비디오 박스 */
 .about-video {
   width: 100%;
-  margin: 0 auto;
-}
-
-.about-video video {
-  width: 100%;
-  display: block;
+  margin: 0;
+  overflow: hidden;
   border-radius: 10px;
   background: #111;
+}
+
+/* 비디오 공통 */
+.about-video video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;            /* 원본 비율 달라도 프레임에 맞춤 */
+  border-radius: 10px;
+  background: #111;
+}
+
+/* 왼쪽 MagLev: 오른쪽 전체 높이에 맞춰 채움 */
+.about-video-column.left {
+  display: grid;
+  grid-template-rows: 1fr auto; /* video + caption */
+  row-gap: 10px;
+}
+
+.about-video.mag {
+  height: 100%;
+}
+
+/* 왼쪽 video는 세로형이므로 contain이 더 자연스러울 수도 있음.
+   프레임 꽉 채우고 싶으면 cover 유지 */
+.about-video.mag video {
+  height: 100%;
   object-fit: cover;
 }
 
-/* 왼쪽 MagLev 영상 비율 */
-.about-video.mag video {
-  aspect-ratio: 4 / 5;
+/* 오른쪽 모바일 로봇 박스: 동일 width, 동일 height 강제 */
+.about-video.robot {
+  width: 100%;
+  aspect-ratio: 16 / 9;         /* 두 영상 너비/높이 완전 통일 */
 }
 
-/* 오른쪽 모바일 로봇 영상 비율 */
-.about-video.robot video {
-  aspect-ratio: 16 / 9;
-}
-
+/* caption */
 .about-video-column figcaption {
-  margin-top: 10px;
+  margin: 0;
   font-size: 14px;
   color: #aaa;
   text-align: center;
@@ -269,17 +293,30 @@ footer {
 
   .about-video-column.left,
   .about-video-column.right {
-    max-width: 100%;
+    display: block;
   }
 
   .about-video-stack {
     grid-template-rows: auto;
+    gap: 16px;
+  }
+
+  .about-video.robot {
+    aspect-ratio: 16 / 9;
+  }
+
+  .about-video.mag {
+    aspect-ratio: 4 / 5;
   }
 
   .about-video.mag video,
   .about-video.robot video {
-    aspect-ratio: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
+  }
+
+  .about-video-column figcaption {
+    margin-top: 10px;
   }
 }
 
