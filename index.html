@@ -40,19 +40,34 @@
         </p>
 
         <div class="about-video-grid">
-          <div class="media-box about-video">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="./assets/videos/magnetic_levitation.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-
-          <div class="media-box about-video">
-            <video autoplay muted loop playsinline preload="metadata">
-              <source src="./assets/videos/tracking_S_720p.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
+          <figure class="about-video-column left">
+            <div class="media-box about-video mag">
+              <video autoplay muted loop playsinline preload="metadata">
+                <source src="./assets/videos/magnetic_levitation.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <figcaption>Magnetic Levitation Control</figcaption>
+          </figure>
+        
+          <figure class="about-video-column right">
+            <div class="about-video-stack">
+              <div class="media-box about-video robot">
+                <video autoplay muted loop playsinline preload="metadata">
+                  <source src="./assets/videos/tracking_O_720p.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+        
+              <div class="media-box about-video robot">
+                <video autoplay muted loop playsinline preload="metadata">
+                  <source src="./assets/videos/tracking_S_720p.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+            <figcaption>Mobile Robot Trajectory Tracking Experiments</figcaption>
+          </figure>
         </div>
       </section>
 
