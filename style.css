@@ -220,11 +220,14 @@ footer {
   height: auto;
   display: block;
 }
-/* .about-video video {
-  width: 100%;
-  height: auto;
-} */
 
+.about-video figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #aaa;
+  text-align: center;
+  line-height: 1.4;
+}
 
 /* =========================
    Mobile: stack videos
@@ -234,7 +237,6 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-
 
 /* =========================
    Paper Preview Grid (TUNED)
