@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thermal Process MPC — ARX-ESO Based Control</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <!-- Header Banner -->
+  <div class="header-banner">
+    <img
+      src="https://capsule-render.vercel.app/api?type=waving&color=20:0000ff,120:00ff00&height=100&section=header&text=JunhuiWoo&fontSize=50&fontAlign=79&fontAlignY=30&animation=fadeIn&fontColor=000000&desc=Engineer&descSize=20&rotate=0&descAlign=80&descAlignY=55"
+      alt="header"
+    >
+  </div>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <div id="sidebar"></div>
+
+    <!-- Main Content -->
+    <main class="content">
+
+      <!-- Header -->
+      <header class="project-header">
+        <h1>Data-Driven Model Predictive Control of Thermal Processes via ARX-ESO</h1>
+        <div class="project-meta">
+          <strong>Author:</strong> Junhui Woo (Kyungpook National University)<br>
+          <strong>Period:</strong> November 2025 – December 2025
+        </div>
+      </header>
+
+      <!-- Table of Contents -->
+      <nav class="toc">
+        <h3>Contents</h3>
+        <ul>
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#background">1. Background</a></li>
+          <li><a href="#approach">2. System Identification & Modeling</a></li>
+          <li><a href="#design">3. MPC Design</a></li>
+          <li><a href="#results">4. Results</a></li>
+          <li><a href="#insights">5. Insights</a></li>
+        </ul>
+      </nav>
+
+      <!-- Abstract -->
+      <section id="abstract" class="abstract-section">
+        <p>
+          This project addresses the problem of replacing conventional PID control with data-driven 
+          Model Predictive Control (MPC) in thermal heat-treatment processes. 
+          The industrial requirement is to maintain 
+          <strong>930 °C for approximately 3 hours, then 880 °C for approximately 1 hour</strong> 
+          within a tolerance band of ±5–10 °C.
+        </p>
+
+        <p>
+          From operational data, we identified a simple yet effective first-order ARX(1,1) model, 
+          compensating for modeling discrepancies—including time delays, cold-load effects, and thermal losses—
+          through an Extended State Observer (ESO) that estimates disturbances in real time. 
+          The resulting ARX+ESO predictive model is integrated into an MPC framework that explicitly handles 
+          input saturation, rate constraints, and temperature bounds. 
+          Simulation results on six independent datasets demonstrate 
+          that the proposed controller significantly outperforms existing PID schemes across 
+          tracking error, energy consumption, and overall cost metrics.
+        </p>
+      </section>
+
+      <!-- Background -->
+      <section id="background">
+        <h2>1. Background and Problem Formulation</h2>
+
+        <h3>1.1 Thermal Process Characteristics</h3>
+
+        <div class="result-figures-grid">
+          <figure class="result-figure">
+            <img src="./assets/figure/plant.png" alt="Thermal process apparatus">
+            <figcaption>
+              <strong>Figure 1a:</strong> Thermal furnace apparatus and chamber configuration.
+            </figcaption>
+          </figure>
+
+          <figure class="result-figure">
+            <img src="./assets/figure/heat_controller.png" alt="Control system architecture">
+            <figcaption>
+              <strong>Figure 1b:</strong> Conventional PID-based control architecture.
+            </figcaption>
+          </figure>
+        </div>
+
+        <p>
+          Heat treatment is a critical step in materials processing that determines mechanical properties and microstructure. 
+          The fundamental challenge is to drive the furnace chamber to a target setpoint $T_{\mathrm{ref}}$ 
+          and maintain it with tight tolerance throughout a prescribed dwell period.
+        </p>
+
+        <p>
+          In industrial practice, several nonideal phenomena degrade control performance:
+        </p>
+        <ul>
+          <li><strong>Cold-load effect:</strong> When material is loaded into the chamber, the internal temperature drops abruptly;</li>
+          <li><strong>Thermal losses:</strong> Radiative and convective losses cause the system to cool faster than predicted;</li>
+          <li><strong>Input time delay:</strong> The heating element response and thermal transmission exhibit latency.</li>
+        </ul>
+
+        <p>
+          These nonlinearities and uncertainties are difficult to capture in a fixed-gain PID controller. 
+          As a result, overshoot, input saturation, and excessive energy consumption are common. 
+          Moreover, when the reference trajectory changes in stages and includes long dwell periods, 
+          a controller that ignores future information is fundamentally limited. 
+          This motivates the use of Model Predictive Control, which exploits an explicit process model 
+          and forecasts over a prediction horizon to make decisions that anticipate disturbances 
+          and respect hard constraints.
+        </p>
+
+        <h3>1.2 Motivation for MPC</h3>
+
+        <p>
+          Classical approaches such as manual tuning or adaptive PID gain scheduling 
+          are labor-intensive and often result in conservative parameter choices. 
+          In contrast, MPC offers:
+        </p>
+        <ul>
+          <li>Explicit handling of input and rate constraints;</li>
+          <li>Predictive horizon for anticipatory control;</li>
+          <li>Systematic incorporation of a disturbance model (ESO) for robustness.</li>
+        </ul>
+
+        <p>
+          Our goal is to demonstrate that a simple, data-identified model combined with 
+          real-time disturbance estimation can outperform entrenched PID solutions 
+          while remaining computationally tractable for industrial deployment.
+        </p>
+      </section>
+
+      <!-- Approach -->
+      <section id="approach">
+        <h2>2. System Identification and Modeling</h2>
+
+        <h3>2.1 ARX Model Identification</h3>
+
+        <p>
+          We model the thermal dynamics using a first-order ARX (AutoRegressive eXogenous) structure:
+        </p>
+
+        <div class="equation">
+          $$T_{k+1} = a \, T_k + b \, u_k + z_k$$
+        </div>
+
+        <p>
+          where $T_k \in [0, 1]$ is the normalized chamber temperature at time step $k$, 
+          $u_k \in [0, 1]$ is the normalized heating input, 
+          $a, b$ are model parameters identified via least-squares regression on operational data, 
+          and $z_k$ is an unmeasured disturbance term capturing model mismatch.
+        </p>
+
+        <p>
+          The simplicity of ARX(1,1) offers several advantages:
+        </p>
+        <ul>
+          <li>Low computational burden, enabling fast MPC solves;</li>
+          <li>Direct interpretability: $a$ relates to thermal time constant, $b$ to heater efficiency;</li>
+          <li>Sufficient to capture the slow dominant modes of the thermal response.</li>
+        </ul>
+
+        <h3>2.2 Extended State Observer (ESO) for Disturbance Estimation</h3>
+
+        <p>
+          Rather than attempting to model every physical phenomenon (delays, cold-load transients, etc.), 
+          we treat all deviations from the ARX model as an aggregated disturbance $z_k$ 
+          and estimate it in real-time using an Extended State Observer:
+        </p>
+
+        <div class="equation">
+          $$\hat{z}_k = \text{ESO}(T_k, u_k, y_k)$$
+        </div>
+
+        <p>
+          where $y_k$ is the measured furnace temperature. The ESO exploits the fact that 
+          the disturbance $z_k$ evolves slowly relative to the system time constant, 
+          allowing stable real-time reconstruction. By feeding $\hat{z}_k$ into the MPC prediction model, 
+          we achieve robustness against model uncertainty without explicitly formulating constraints 
+          on the disturbance.
+        </p>
+
+        <p>
+          The ESO structure is a reduced-order observer that maintains an internal state estimate $\hat{x}_k$ 
+          and corrects it based on measurement residuals. A tuning parameter $l_o$ (observer gain) 
+          balances responsiveness to measurement noise versus tracking speed of the disturbance dynamics.
+        </p>
+      </section>
+
+      <!-- Design -->
+      <section id="design">
+        <h2>3. MPC Design Framework</h2>
+
+        <h3>3.1 Augmented Prediction Model</h3>
+
+        <p>
+          The MPC prediction model combines the ARX structure with the estimated disturbance:
+        </p>
+
+        <div class="equation">
+          $$T_{k+i+1|k} = a \, T_{k+i|k} + b \, u_{k+i} + \hat{z}_{k+i|k}$$
+        </div>
+
+        <p>
+          where $T_{k+i|k}$ denotes the predicted temperature $i$ steps ahead given information at time $k$, 
+          and $\hat{z}_{k+i|k}$ is a prediction of the disturbance. 
+          For simplicity, we assume $\hat{z}_{k+i|k} \approx \hat{z}_k$ (constant disturbance assumption) 
+          or use a low-pass extrapolation if recent trends are available.
+        </p>
+
+        <h3>3.2 Optimal Control Problem</h3>
+
+        <p>
+          MPC solves a finite-horizon optimal control problem at each time step. 
+          The decision variable is the input sequence $\{u_{k}, u_{k+1}, \ldots, u_{k+N-1}\}$ 
+          over prediction horizon $N$, and the objective is:
+        </p>
+
+        <div class="equation">
+          \begin{aligned}
+          J(u_k, \ldots, u_{k+N-1}) = &\sum_{i=0}^{N-1} \left[
+            \beta (T_{k+i+1|k} - T_{\mathrm{ref},k+i})^2 
+            + \lambda (\Delta u_{k+i})^2 
+            + \eta \, u_{k+i}^2
+          \right]
+          \end{aligned}
+        </div>
+
+        <p>
+          The three penalty terms are:
+        </p>
+        <ul>
+          <li><strong>Tracking term:</strong> $\beta (T_{k+i+1|k} - T_{\mathrm{ref},k+i})^2$ 
+            penalizes deviation from the reference trajectory;</li>
+          <li><strong>Rate-of-change term:</strong> $\lambda (\Delta u_{k+i})^2$ 
+            where $\Delta u_{k+i} = u_{k+i} - u_{k+i-1}$ smooths input transitions 
+            to avoid wearing out the heating element;</li>
+          <li><strong>Input magnitude term:</strong> $\eta \, u_{k+i}^2$ 
+            limits energy consumption and prevents unnecessary operation.</li>
+        </ul>
+
+        <p>
+          The weights $\beta$, $\lambda$, $\eta$ are tuned to balance performance objectives. 
+          Typical values chosen empirically are $\beta = 10$, $\lambda = 1$, $\eta = 0.1$.
+        </p>
+
+        <h3>3.3 Constraints</h3>
+
+        <p>
+          The optimization is subject to the following hard constraints:
+        </p>
+
+        <div class="key-points">
+          <ul>
+            <li><strong>Input bounds:</strong> $u_{\min} \leq u_{k+i} \leq u_{\max}$, e.g., $0 \leq u \leq 1$ (normalized);</li>
+            <li><strong>Rate constraints:</strong> $|\Delta u_{k+i}| \leq \Delta u_{\max}$, 
+              e.g., $\Delta u_{\max} = 0.1$ per time step;</li>
+            <li><strong>Temperature bounds:</strong> 
+              $T_{\min}(k+i) \leq T_{k+i|k} \leq T_{\max}(k+i)$ 
+              where bounds may be stage-dependent (e.g., 850–950 °C during dwell).</li>
+          </ul>
+        </div>
+
+        <p>
+          The constrained optimization is solved via Sequential Least-Squares Programming (SLSQP) 
+          or Quadratic Programming if the problem is reformulated as a QP. 
+          Typical solve time is <1 ms on a standard embedded processor.
+        </p>
+      </section>
+
+      <!-- Results -->
+      <section id="results">
+        <h2>4. Results</h2>
+
+        <h3>4.1 Representative Simulation: Case 250905-A081</h3>
+
+        <p>
+          We validate the closed-loop MPC performance using historical operational datasets. 
+          Below, we present detailed trajectory visualizations for representative case 250905-A081. 
+          All six datasets exhibited qualitatively similar behavior; quantitative metrics are summarized in Section 4.2.
+        </p>
+
+        <h4>4.1.1 Temperature Tracking</h4>
+
+        <figure class="result-figure">
+          <img src="./assets/result/tracking_simulation.png" alt="MPC tracking performance">
+          <figcaption>
+            <strong>Figure 2:</strong> 
+            Temperature tracking over the full mission profile. 
+            Orange line: reference trajectory ($T_{\mathrm{ref}}$). 
+            Blue line: simulated furnace temperature under MPC control. 
+            The controller smoothly ramps to 930 °C over ~72 minutes, 
+            maintains it for ~3 hours within ±5 °C, 
+            then transitions to and holds 880 °C for ~1 hour.
+          </figcaption>
+        </figure>
+
+        <p>
+          The MPC achieves excellent setpoint tracking. 
+          The initial ramp exhibits minimal overshoot, 
+          and steady-state regulation maintains temperature within the prescribed tolerance band. 
+          The transition between setpoints is smooth, avoiding the oscillations 
+          typical of fixed-gain PID controllers.
+        </p>
+
+        <h4>4.1.2 Disturbance Estimation and Input Profile</h4>
+
+        <div class="result-figures-grid">
+          <figure class="result-figure">
+            <img src="./assets/result/disturbance.png" alt="ESO disturbance estimate">
+            <figcaption>
+              <strong>Figure 3a:</strong> 
+              Real-time disturbance estimate $\hat{z}_k$ from the Extended State Observer. 
+              The ESO successfully captures the effect of cold loads (negative spikes) 
+              and thermal losses (slow drift), enabling the MPC to preemptively adjust inputs.
+            </figcaption>
+          </figure>
+
+          <figure class="result-figure">
+            <img src="./assets/result/control_input.png" alt="MPC control input">
+            <figcaption>
+              <strong>Figure 3b:</strong> 
+              Normalized heater command $u_k$ generated by MPC. 
+              The input rises smoothly during the ramp phase, 
+              settles to a steady-state value during dwell, 
+              and remains within physical limits [0, 1]. 
+              No saturations or unphysical discontinuities are observed.
+            </figcaption>
+          </figure>
+        </div>
+
+        <h4>4.1.3 Tracking Error Evolution</h4>
+
+        <figure class="result-figure">
+          <img src="./assets/result/error_state.png" alt="Tracking error">
+          <figcaption>
+            <strong>Figure 4:</strong> 
+            Instantaneous tracking error $e_k = T_k - T_{\mathrm{ref},k}$. 
+            The error rapidly converges to near-zero during the ramp phase, 
+            with subsequent oscillations confined within ±2 °C during steady state. 
+            This demonstrates robust, stable closed-loop operation.
+          </figcaption>
+        </figure>
+
+        <h3>4.2 Quantitative Performance Comparison: PID vs MPC</h3>
+
+        <p>
+          We evaluate the proposed MPC against the existing PID controller using six independent operational datasets. 
+          Performance is measured across four metrics:
+        </p>
+        <ul>
+          <li><strong>Mission Duration:</strong> Total time to complete the heat-treatment profile (minutes);</li>
+          <li><strong>Cumulative Control Input:</strong> 
+            $\sum_{k=0}^{K} u_k$ (proxy for total energy, normalized);</li>
+          <li><strong>Tracking Error Integral:</strong> 
+            $\sum_{k=0}^{K} |e_k|$ (Integral of Absolute Error, IAE);</li>
+          <li><strong>Cost Function Value:</strong> 
+            $J = \sum_{i=0}^{K} [\beta e_i^2 + \lambda (\Delta u_i)^2 + \eta u_i^2]$.</li>
+        </ul>
+
+        <table>
+          <thead>
+            <tr>
+              <th rowspan="2"><strong>Run ID</strong></th>
+              <th colspan="3"><strong>Mission Duration (min)</strong></th>
+              <th colspan="3"><strong>Control Input (norm.)</strong></th>
+              <th colspan="3"><strong>Tracking Error (IAE)</strong></th>
+              <th colspan="3"><strong>Cost Function</strong></th>
+            </tr>
+            <tr>
+              <th>PID</th>
+              <th>MPC</th>
+              <th>Impr. (%)</th>
+              <th>PID</th>
+              <th>MPC</th>
+              <th>Impr. (%)</th>
+              <th>PID</th>
+              <th>MPC</th>
+              <th>Impr. (%)</th>
+              <th>PID</th>
+              <th>MPC</th>
+              <th>Impr. (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>250904-A081</td>
+              <td>482</td>
+              <td>337</td>
+              <td><strong>43.0</strong></td>
+              <td>227.49</td>
+              <td>196.48</td>
+              <td><strong>13.6</strong></td>
+              <td>2133.22</td>
+              <td>1669.99</td>
+              <td><strong>21.7</strong></td>
+              <td>9.10e6</td>
+              <td>5.58e6</td>
+              <td><strong>38.7</strong></td>
+            </tr>
+            <tr>
+              <td>250904-A082</td>
+              <td>486</td>
+              <td>327</td>
+              <td><strong>48.6</strong></td>
+              <td>222.34</td>
+              <td>184.96</td>
+              <td><strong>16.8</strong></td>
+              <td>1519.72</td>
+              <td>1189.27</td>
+              <td><strong>21.7</strong></td>
+              <td>4.62e6</td>
+              <td>2.83e6</td>
+              <td><strong>38.8</strong></td>
+            </tr>
+            <tr>
+              <td>250904-A083</td>
+              <td>486</td>
+              <td>341</td>
+              <td><strong>42.5</strong></td>
+              <td>228.83</td>
+              <td>198.65</td>
+              <td><strong>13.2</strong></td>
+              <td>2041.85</td>
+              <td>1660.69</td>
+              <td><strong>18.7</strong></td>
+              <td>8.34e6</td>
+              <td>5.52e6</td>
+              <td><strong>33.9</strong></td>
+            </tr>
+            <tr style="background-color: #262626;">
+              <td><strong>250905-A081</strong></td>
+              <td><strong>488</strong></td>
+              <td><strong>326</strong></td>
+              <td><strong>49.7</strong></td>
+              <td><strong>232.49</strong></td>
+              <td><strong>186.18</strong></td>
+              <td><strong>19.9</strong></td>
+              <td><strong>2196.39</strong></td>
+              <td><strong>1266.31</strong></td>
+              <td><strong>42.3</strong></td>
+              <td><strong>9.65e6</strong></td>
+              <td><strong>3.21e6</strong></td>
+              <td><strong>66.8</strong></td>
+            </tr>
+            <tr>
+              <td>250907-A081</td>
+              <td>500</td>
+              <td>348</td>
+              <td><strong>43.7</strong></td>
+              <td>249.11</td>
+              <td>220.91</td>
+              <td><strong>11.3</strong></td>
+              <td>2548.73</td>
+              <td>2072.84</td>
+              <td><strong>18.7</strong></td>
+              <td>1.30e7</td>
+              <td>8.59e6</td>
+              <td><strong>33.9</strong></td>
+            </tr>
+            <tr>
+              <td>250907-A082</td>
+              <td>496</td>
+              <td>336</td>
+              <td><strong>47.6</strong></td>
+              <td>232.43</td>
+              <td>199.01</td>
+              <td><strong>14.4</strong></td>
+              <td>2195.61</td>
+              <td>1627.45</td>
+              <td><strong>25.9</strong></td>
+              <td>9.64e6</td>
+              <td>5.30e6</td>
+              <td><strong>45.1</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          <strong>Summary of Results:</strong>
+        </p>
+        <ul>
+          <li><strong>Mission Duration:</strong> 
+            MPC reduces total time by ~45% on average, 
+            reflecting faster ramp rates and tighter setpoint regulation that avoids oscillatory recovery.</li>
+          <li><strong>Control Input (Energy):</strong> 
+            MPC uses ~15% less total energy, 
+            indicating more efficient operation and reduced equipment wear.</li>
+          <li><strong>Tracking Error:</strong> 
+            MPC achieves ~25% lower cumulative error, 
+            demonstrating superior accuracy in setpoint maintenance.</li>
+          <li><strong>Overall Cost:</strong> 
+            The composite cost function decreases by ~40% under MPC, 
+            validating the multi-objective design philosophy.</li>
+        </ul>
+
+        <p>
+          These improvements are consistent across all six datasets, 
+          indicating robustness of the ARX-ESO+MPC approach 
+          and demonstrating practical readiness for industrial deployment.
+        </p>
+      </section>
+
+      <!-- Insights -->
+      <section id="insights">
+        <h2>5. Insights and Lessons Learned</h2>
+
+        <h3>5.1 What Worked Well</h3>
+
+        <p>
+          The combination of a simple ARX(1,1) model with real-time ESO disturbance estimation 
+          proved highly effective. Despite the inherent simplicity, the framework captures 
+          the dominant dynamics and compensates for unmodeled phenomena (delays, cold-load effects, thermal losses) 
+          through the disturbance feedback loop. This demonstrates that in process control, 
+          <em>robustness through feedback is often superior to complexity through modeling.</em>
+        </p>
+
+        <p>
+          The MPC formulation explicitly handles input saturation and rate constraints, 
+          preventing violations that would otherwise require additional safety layers. 
+          This end-to-end integration simplifies deployment and reduces commissioning effort.
+        </p>
+
+        <h3>5.2 Practical Challenges</h3>
+
+        <p>
+          Identifying the ARX(1,1) parameters from noisy operational data required careful preprocessing, 
+          including outlier removal and low-pass filtering to suppress measurement noise below the control bandwidth. 
+          The time-delay estimation was non-trivial, requiring correlation analysis or 
+          fitting with delay-augmented model structures.
+        </p>
+
+        <p>
+          ESO tuning required empirical iteration; overly aggressive observer gains led to noise amplification, 
+          while conservative gains degraded disturbance tracking speed. 
+          A mid-range tuning ($l_o \approx 0.3$–0.5) generally performed well across datasets.
+        </p>
+
+        <h3>5.3 Lessons Learned</h3>
+
+        <p>
+          <strong>1. Data Quality is Paramount:</strong> 
+          The final MPC performance is limited by the quality and richness of identification data. 
+          Datasets rich in excitation (diverse operating points and transient events) 
+          yield more robust models than monotonic or quasi-steady datasets.
+        </p>
+
+        <p>
+          <strong>2. Disturbance Feedback Beats Perfect Models:</strong> 
+          Rather than investing heavily in accurate first-principles modeling, 
+          a simple black-box model combined with adaptive disturbance estimation provides better robustness 
+          and is faster to deploy.
+        </p>
+
+        <p>
+          <strong>3. Constraint Handling is Critical:</strong> 
+          Many PID-to-MPC transitions fail when constraints are naively ignored. 
+          Proper constraint formulation and solver robustness are prerequisites for reliability.
+        </p>
+
+        <p>
+          <strong>4. Tuning is Problem-Dependent:</strong> 
+          There is no universal weight set $(\beta, \lambda, \eta)$ that works for all processes. 
+          The present study employed weights tuned to balance settling time, overshoot, and energy use; 
+          different priorities would require re-tuning. Automated tuning methods 
+          (e.g., frequency response-based design or learning-based approaches) 
+          remain an open direction for future work.
+        </p>
+      </section>
+
+      <!-- Footer -->
+      <section class="status-footer">
+        <p>
+          <strong>Project Status:</strong> Completed (December 2025)<br>
+          <strong>Datasets:</strong> 6 independent operational runs analyzed<br>
+          <strong>Contribution:</strong> Full system design, identification, MPC formulation, and simulation validation
+        </p>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    fetch("../../includes/sidebar.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("sidebar").innerHTML = html;
+      });
+  </script>
+
+</body>
+</html>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,124 +31,196 @@
 
       <section>
         <h2>📑 Industry Projects</h2>
+
+        <div class="project-category-intro">
+          <p>
+            Professional projects developed at KISpricing Financial Engineering Research Group. 
+            These projects focused on automating financial data collection and volatility modeling 
+            using modern software engineering practices and quantitative finance techniques.
+          </p>
+        </div>
+
+        <div class="research-projects-grid">
           
-          <div class="project-box" onclick="this.classList.toggle('open')">
-            <div class="project-summary">
-              <div class="project-title">
-                Python-based Financial Data ETL Pipeline Development
+          <!-- Project 1: Financial Data ETL -->
+          <a href="/projects/kispricing-etl-pipeline/" class="research-project-link">
+            <div class="research-card">
+              <h3>Python-based Financial Data ETL Pipeline Development</h3>
+              <div class="research-card-meta">
+                <div class="research-card-meta-item">
+                  <span class="research-card-meta-label">Period:</span>
+                  <span class="research-card-meta-value">April 2022 – July 2022</span>
+                </div>
+                <div class="research-card-meta-item">
+                  <span class="research-card-meta-label">Company:</span>
+                  <span class="research-card-meta-value">KISpricing Financial Engineering Research Group</span>
+                </div>
               </div>
-
-              <div class="project-meta">
-                2022.04 – 2022.07 | KISpricing Financial Engineering Research Group
+              <div class="research-card-keywords">
+                <span class="research-card-keywords-label">Keywords:</span>
+                <div class="research-card-keywords-list">
+                  <span class="keyword-tag">ETL Pipeline</span>
+                  <span class="keyword-tag">Python</span>
+                  <span class="keyword-tag">Celery</span>
+                  <span class="keyword-tag">Data Automation</span>
+                  <span class="keyword-tag">Cost Reduction (50%)</span>
+                </div>
               </div>
-
-              <button type="button" class="project-toggle-btn">Click Details</button>
             </div>
+          </a>
 
-            <div class="project-detail">
-              <h3>1. Project Overview</h3>
-              <ul class="detail-list">
-                <li>Project Name : Financial Market Data Automated Collection and Storage Pipeline Development</li>
-                <li>Project Period : April 2022 - July 2022</li>
-                <li>Role : Sole Designer and Developer</li>
-                <li>Tech Stack : Python, Celery, APScheduler, MariaDB, Oracle, Excel Premium API</li>
-              </ul>
-
-              <h3>2. Project Objective</h3>
-              <p>
-                The main objective was to automate the collection of stock derivatives market data, which had previously been manually collected through external vendors, in order to improve data collection stability and quality while reducing costs.
-              </p>
-
-              <h3>3. Key Implementation Details</h3>
-              <ul class="detail-list">
-                <li><strong>Data Collection Automation</strong>: Built an automated pipeline to collect KOSPI and HSCEI options market data using CHECK Expert API and Excel Premium API</li>
-                <li><strong>ETL Process Design</strong>: Designed and implemented the full ETL (Extract, Transform, Load) pipeline, including text format conversion, transfer to processing servers, and final database storage</li>
-                <li><strong>Scheduling and Task Management</strong>: Efficiently managed job scheduling and parallel processing using Celery and APScheduler</li>
-                <li><strong>Quality Validation and Documentation</strong>: Implemented data quality validation processes and created full system specification documentation to ensure maintainability</li>
-              </ul>
-
-              <h3>4. Outcomes and Impact</h3>
-              <ul class="detail-list">
-                <li><strong>Cost Reduction</strong>: Achieved annual cost savings of approximately 8,268 GBP (≈ 13,165,000 KRW based on 2022 average exchange rate of 1 GBP ≈ 1,592.31 KRW)</li>
-                <li><strong>Data Quality Improvement</strong>: Improved data quality by approximately <strong>24.45%</strong> through automated collection and validation processes</li>
-              </ul>
-              
-              <h3>5. Technology Stack Used</h3>
-              <p>
-                Python, Celery, APScheduler, MariaDB, Oracle, Excel Premium API
-              </p>
+          <!-- Project 2: SABR Volatility Model -->
+          <a href="/projects/kispricing-sabr-model/" class="research-project-link">
+            <div class="research-card">
+              <h3>SABR-based Stock Option Volatility Valuation Model Automation</h3>
+              <div class="research-card-meta">
+                <div class="research-card-meta-item">
+                  <span class="research-card-meta-label">Period:</span>
+                  <span class="research-card-meta-value">July 2022 – February 2023</span>
+                </div>
+                <div class="research-card-meta-item">
+                  <span class="research-card-meta-label">Company:</span>
+                  <span class="research-card-meta-value">KISpricing Financial Engineering Research Group</span>
+                </div>
+              </div>
+              <div class="research-card-keywords">
+                <span class="research-card-keywords-label">Keywords:</span>
+                <div class="research-card-keywords-list">
+                  <span class="keyword-tag">SABR Model</span>
+                  <span class="keyword-tag">Volatility Surface</span>
+                  <span class="keyword-tag">Optimization</span>
+                  <span class="keyword-tag">Automation (90%)</span>
+                  <span class="keyword-tag">Python</span>
+                </div>
+              </div>
             </div>
+          </a>
+
+        </div>
+      </section>
+
+          <h2>📑 Research Projects</h2>
+ 
+          <div class="project-category-intro">
+            <p>
+              My research focuses on data-driven control of autonomous systems, robotic manipulators, and thermal processes. 
+              I combine machine learning-based dynamics modeling with model predictive control to achieve 
+              robust, efficient, and practical control solutions for complex nonlinear systems. 
+              Below are completed research projects.
+            </p>
           </div>
-
-
-          <div class="project-box" onclick="this.classList.toggle('open')">
-            <div class="project-summary">
-              <div class="project-title">
-                SABR-based Stock Option Volatility Valuation Model Automation
+   
+          <div class="research-projects-grid">
+            
+            <!-- Project 1: Mobile Robot MPC -->
+            <a href="/projects/mpc-mobile-robot/" class="research-project-link">
+              <div class="research-card">
+                <h3>Mobile Robot MPC with Neural ODE</h3>
+                <div class="research-card-meta">
+                  <div class="research-card-meta-item">
+                    <span class="research-card-meta-label">Period:</span>
+                    <span class="research-card-meta-value">November 2024 – January 2026</span>
+                  </div>
+                  <div class="research-card-meta-item">
+                    <span class="research-card-meta-label">Status:</span>
+                    <span class="research-card-meta-value">Published (ICCAS 2025), Under Review (IFAC 2026)</span>
+                  </div>
+                </div>
+                <div class="research-card-keywords">
+                  <span class="research-card-keywords-label">Keywords:</span>
+                  <div class="research-card-keywords-list">
+                    <span class="keyword-tag">Neural ODE</span>
+                    <span class="keyword-tag">Error Dynamics</span>
+                    <span class="keyword-tag">MPC</span>
+                    <span class="keyword-tag">LMI</span>
+                    <span class="keyword-tag">Trajectory Tracking</span>
+                  </div>
+                </div>
               </div>
-
-              <div class="project-meta">
-                2022.07 – 2023.02 | KISpricing Financial Engineering Research Group
+            </a>
+   
+            <!-- Project 2: Thermal Process MPC -->
+            <a href="/projects/mpc-heat-processing/" class="research-project-link">
+              <div class="research-card">
+                <h3>Thermal Process Control via ARX-ESO MPC</h3>
+                <div class="research-card-meta">
+                  <div class="research-card-meta-item">
+                    <span class="research-card-meta-label">Period:</span>
+                    <span class="research-card-meta-value">November 2025 – December 2025</span>
+                  </div>
+                  <div class="research-card-meta-item">
+                    <span class="research-card-meta-label">Status:</span>
+                    <span class="research-card-meta-value">Completed (6 datasets, validated)</span>
+                  </div>
+                </div>
+                <div class="research-card-keywords">
+                  <span class="research-card-keywords-label">Keywords:</span>
+                  <div class="research-card-keywords-list">
+                    <span class="keyword-tag">ARX Model</span>
+                    <span class="keyword-tag">ESO</span>
+                    <span class="keyword-tag">MPC</span>
+                    <span class="keyword-tag">Data-driven</span>
+                    <span class="keyword-tag">Process Control</span>
+                  </div>
+                </div>
               </div>
+            </a>
 
-              <button type="button" class="project-toggle-btn">Click Details</button>
-            </div>
+            <!-- Project 3: Error Dynamics Manipulator -->
+            <a href="/projects/error-dynamics-manipulator/" class="research-project-link">
+              <div class="research-card">
+                <h3>Error Dynamics-Based Control of 4-DOF Robotic Manipulator</h3>
+                <div class="research-card-meta">
+                  <div class="research-card-meta-item">
+                    <span class="research-card-meta-label">Period:</span>
+                    <span class="research-card-meta-value">TBD</span>
+                  </div>
+                  <div class="research-card-meta-item">
+                    <span class="research-card-meta-label">Status:</span>
+                    <span class="research-card-meta-value">Ongoing</span>
+                  </div>
+                </div>
+                <div class="research-card-keywords">
+                  <span class="research-card-keywords-label">Keywords:</span>
+                  <div class="research-card-keywords-list">
+                    <span class="keyword-tag">Manipulator Control</span>
+                    <span class="keyword-tag">Error Dynamics</span>
+                    <span class="keyword-tag">Neural ODE</span>
+                    <span class="keyword-tag">MPC</span>
+                    <span class="keyword-tag">Learned Models</span>
+                  </div>
+                </div>
+              </div>
+            </a>
 
-            <div class="project-detail">
-              <h3>1. Project Overview</h3>
-              <ul class="detail-list">
-                <li>Project Name : SABR-based Stock Option Volatility Valuation Model Automation</li>
-                <li>Project Period : July 2022 - February 2023</li>
-                <li>Role : Model transition design and automation logic implementation</li>
-                <li>Tech Stack : Python, Excel VBA, MariaDB, Oracle, Telegram Bot (API)</li>
-              </ul>
-
-              <h3>2. Project Objective</h3>
-              <p>
-                The existing Excel VBA-based Log-Normal Mixture volatility model had a large number of parameters and strong nonlinearity,
-                frequently leading to local-minima issues during calibration. As a result, manual parameter adjustments by users were an essential
-                part of the workflow. This project aimed to improve the stability of volatility-curve generation and enable fully automated operations
-                by transitioning the valuation framework to a SABR-based approach, which uses fewer parameters and provides a more interpretable curve structure.
-              </p>
-
-              <h3>3. Key Implementation Details</h3>
-              <ul class="detail-list">
-                <li><strong>Volatility model transition</strong>: Migrated from the existing mixture-model framework to a SABR-based volatility surface generation pipeline, reducing the parameter count and improving calibration stability</li>
-                <li><strong>Automated parameter calibration logic</strong>: Converted user experience-based manual adjustment rules into a rule-based algorithm to establish a fully automated calibration process</li>
-                <li><strong>Python-based volatility generation automation</strong>: Replaced the Excel VBA calculation workflow with a Python-based computation engine to automatically generate and calibrate volatility curves</li>
-                <li><strong>Operational automation system</strong>: Implemented an end-to-end automation pipeline including volatility generation, database storage, curve visualization output to the server, and Telegram notifications for summarized results</li>
-              </ul>
-
-              <h3>4. Outcomes and Impact</h3>
-              <ul class="detail-list">
-                <li><strong>Process time reduction</strong>: Reduced the time required for volatility-curve generation and validation from approximately 5 hours to about 30 minutes (≈ 90% reduction)</li>
-                <li><strong>Improved automation level</strong>: Converted a semi-automated workflow with manual adjustments into a fully automated system</li>
-                <li><strong>Enhanced operational stability</strong>: Improved reproducibility and stability of volatility curve generation by reducing the number of calibration parameters</li>
-                <li><strong>Infrastructure efficiency improvement</strong>: Optimized data storage architecture to improve server storage utilization efficiency</li>
-              </ul>
-              
-              <h3>5. Technology Stack Used</h3>
-              <p>
-                Python, Excel VBA, MariaDB, Oracle, Telegram Bot (API)
-              </p>
-            </div>
+            <!-- Project 4: YOLO Crack Detection -->
+            <a href="/projects/yolo-crack-detection/" class="research-project-link">
+              <div class="research-card">
+                <h3>Automatic Crack Detection using YOLOv8 and Computer Vision</h3>
+                <div class="research-card-meta">
+                  <div class="research-card-meta-item">
+                    <span class="research-card-meta-label">Period:</span>
+                    <span class="research-card-meta-value">TBD</span>
+                  </div>
+                  <div class="research-card-meta-item">
+                    <span class="research-card-meta-label">Status:</span>
+                    <span class="research-card-meta-value">Completed</span>
+                  </div>
+                </div>
+                <div class="research-card-keywords">
+                  <span class="research-card-keywords-label">Keywords:</span>
+                  <div class="research-card-keywords-list">
+                    <span class="keyword-tag">YOLOv8</span>
+                    <span class="keyword-tag">Crack Detection</span>
+                    <span class="keyword-tag">Computer Vision</span>
+                    <span class="keyword-tag">Deep Learning</span>
+                    <span class="keyword-tag">Image Processing</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+   
           </div>
-
-          <h2>📑 Academic & Personal Projects</h2>
-
-
-
-
-
-
-
-
-
-
-          
-        </section>
-
-
 
     </main>
   </div>

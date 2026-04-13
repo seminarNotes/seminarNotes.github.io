@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SABR Volatility Model Automation — KISpricing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <!-- Header Banner -->
+  <div class="header-banner">
+    <img
+      src="https://capsule-render.vercel.app/api?type=waving&color=20:7c3aed,120:a855f7&height=100&section=header&text=SABR Model&fontSize=40&fontAlign=79&fontAlignY=30&animation=fadeIn&fontColor=ffffff&desc=Volatility Automation&descSize=18&rotate=0&descAlign=80&descAlignY=55"
+      alt="header"
+    >
+  </div>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <div id="sidebar"></div>
+
+    <!-- Main Content -->
+    <main class="content">
+
+      <!-- Header -->
+      <header class="project-header">
+        <h1>SABR-based Stock Option Volatility Valuation Model Automation</h1>
+        <div class="project-meta">
+          <strong>Company:</strong> KISpricing Financial Engineering Research Group<br>
+          <strong>Period:</strong> July 2022 – February 2023<br>
+          <strong>Role:</strong> Model transition design and automation logic implementation
+        </div>
+      </header>
+
+      <!-- Table of Contents -->
+      <nav class="toc">
+        <h3>Contents</h3>
+        <ul>
+          <li><a href="#overview">Project Overview</a></li>
+          <li><a href="#background">Problem Background</a></li>
+          <li><a href="#approach">Solution Approach</a></li>
+          <li><a href="#results">Results & Impact</a></li>
+          <li><a href="#tech">Technology Stack</a></li>
+        </ul>
+      </nav>
+
+      <!-- Overview -->
+      <section id="overview">
+        <h2>Project Overview</h2>
+
+        <div class="abstract-section">
+          <p>
+            This project addressed the critical challenge of automating volatility surface calibration 
+            for stock options. The existing Excel VBA-based mixture model was replaced with a more robust 
+            SABR (Stochastic Alpha-Beta-Rho) framework, enabling full automation and reducing process time by 90%.
+          </p>
+        </div>
+
+        <div class="key-points">
+          <ul>
+            <li><strong>Project Name:</strong> 
+              SABR-based Stock Option Volatility Valuation Model Automation</li>
+            <li><strong>Duration:</strong> 8 months (July 2022 – February 2023)</li>
+            <li><strong>Focus:</strong> 
+              Migrating from manual, heuristic-based calibration to fully automated SABR-based valuation</li>
+            <li><strong>Instruments:</strong> 
+              Stock options (KRW, USD, JPY denominated)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Background -->
+      <section id="background">
+        <h2>Problem Background</h2>
+
+        <h3>2.1 Limitations of the Existing Mixture Model</h3>
+
+        <p>
+          The legacy system used an Excel VBA-based Log-Normal Mixture model characterized by:
+        </p>
+
+        <ul>
+          <li><strong>High Parameter Count:</strong> 
+            20+ calibration parameters introduced degrees of freedom and computational complexity;</li>
+          <li><strong>Nonlinearity:</strong> 
+            The optimization landscape was highly nonlinear, frequently converging to local minima;</li>
+          <li><strong>Manual Intervention Required:</strong> 
+            Traders manually adjusted parameters based on experience, introducing subjectivity and delays;</li>
+          <li><strong>Slow Process:</strong> 
+            Full calibration and validation took ~5 hours per trading day;</li>
+          <li><strong>Fragile:</strong> 
+            Small input changes sometimes caused divergence or unrealistic implied volatility surfaces.</li>
+        </ul>
+
+        <h3>2.2 Why SABR?</h3>
+
+        <p>
+          The SABR model is a stochastic volatility framework with several advantages:
+        </p>
+
+        <div class="equation">
+          \begin{aligned}
+          d F_t &= \alpha_t F_t^\beta dW_1^F \\
+          d \alpha_t &= \nu \alpha_t dW_2^\alpha \\
+          \text{corr}(dW_1^F, dW_2^\alpha) &= \rho
+          \end{aligned}
+        </div>
+
+        <ul>
+          <li><strong>Parsimonious:</strong> 
+            Only 4 parameters ($\alpha$, $\beta$, $\nu$, $\rho$) vs. 20+ in the mixture model;</li>
+          <li><strong>Theoretically Grounded:</strong> 
+            Based on stochastic volatility theory rather than ad-hoc curve fitting;</li>
+          <li><strong>Interpretable:</strong> 
+            Each parameter has clear financial meaning (volatility of volatility, correlation, etc.);</li>
+          <li><strong>Stability:</strong> 
+            Fewer degrees of freedom and clearer optimization landscape reduce convergence issues;</li>
+          <li><strong>Closed-form Asymptotics:</strong> 
+            Provides explicit implied volatility formulas suitable for fast computation.</li>
+        </ul>
+      </section>
+
+      <!-- Approach -->
+      <section id="approach">
+        <h2>Solution Approach</h2>
+
+        <h3>3.1 Model Transition Strategy</h3>
+
+        <p>
+          The migration was conducted in phases to ensure stability and allow parallel validation:
+        </p>
+
+        <div class="key-points">
+          <ul>
+            <li><strong>Phase 1:</strong> 
+              Implement SABR calibration in Python alongside existing VBA system;</li>
+            <li><strong>Phase 2:</strong> 
+              Back-test SABR-generated surfaces against historical market data;</li>
+            <li><strong>Phase 3:</strong> 
+              Convert manual calibration rules to automated parameter selection logic;</li>
+            <li><strong>Phase 4:</strong> 
+              Integrate with downstream systems (pricing engines, risk modules, reporting).</li>
+          </ul>
+        </div>
+
+        <h3>3.2 Automated Calibration Logic</h3>
+
+        <p>
+          The key innovation was converting trader experience-based rules into a deterministic algorithm:
+        </p>
+
+        <ul>
+          <li><strong>Initial Parameter Guess:</strong> 
+            Start with market-implied values from liquid ATM options;</li>
+          <li><strong>Optimization Framework:</strong> 
+            Use scipy.optimize with L-BFGS-B for constrained nonlinear programming;</li>
+          <li><strong>Objective Function:</strong> 
+            Minimize weighted sum of squared errors between model and market implied volatilities, 
+            with weights emphasizing high-activity strike ranges;</li>
+          <li><strong>Bounds and Constraints:</strong> 
+            Impose economically meaningful constraints (e.g., $0 < \beta < 1$, $-1 < \rho < 1$);</li>
+          <li><strong>Validation Checks:</strong> 
+            Automatically reject solutions with unrealistic properties (e.g., negative volatility).</li>
+        </ul>
+
+        <h3>3.3 System Architecture</h3>
+
+        <p>
+          The automation pipeline comprises:
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Technology</th>
+              <th>Function</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Market Data Ingestion</td>
+              <td>Python + APIs</td>
+              <td>Fetch option prices and market data in real-time</td>
+            </tr>
+            <tr>
+              <td>SABR Calibration Engine</td>
+              <td>Python (scipy, numpy)</td>
+              <td>Estimate $(\alpha, \beta, \nu, \rho)$ parameters</td>
+            </tr>
+            <tr>
+              <td>Volatility Surface Generation</td>
+              <td>Python (numpy, matplotlib)</td>
+              <td>Create smooth IV surfaces across strikes and maturities</td>
+            </tr>
+            <tr>
+              <td>Database Storage</td>
+              <td>MariaDB / Oracle</td>
+              <td>Store computed surfaces for downstream use</td>
+            </tr>
+            <tr>
+              <td>Visualization & QA</td>
+              <td>Python + matplotlib</td>
+              <td>Generate charts and validation reports</td>
+            </tr>
+            <tr>
+              <td>Notifications</td>
+              <td>Telegram Bot API</td>
+              <td>Alert on completion or errors</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>3.4 Fallback and Error Handling</h3>
+
+        <ul>
+          <li><strong>Optimizer Failure:</strong> 
+            If SABR calibration fails, system falls back to simpler interpolation;</li>
+          <li><strong>Outlier Detection:</strong> 
+            Market data anomalies flagged for manual review;</li>
+          <li><strong>Timeout Protection:</strong> 
+            Calibration aborted if it takes >30 minutes, reusing previous day's parameters;</li>
+          <li><strong>Audit Trail:</strong> 
+            All decisions logged for post-close review.</li>
+        </ul>
+      </section>
+
+      <!-- Results -->
+      <section id="results">
+        <h2>Results and Impact</h2>
+
+        <h3>4.1 Process Time Reduction</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Old System (VBA)</th>
+              <th>New System (Python+SABR)</th>
+              <th>Improvement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Data collection & cleaning</td>
+              <td>20 min</td>
+              <td>5 min</td>
+              <td>75%</td>
+            </tr>
+            <tr>
+              <td>Manual parameter adjustment</td>
+              <td>180 min</td>
+              <td>0 min (automated)</td>
+              <td>100%</td>
+            </tr>
+            <tr>
+              <td>Calibration computation</td>
+              <td>120 min</td>
+              <td>15 min</td>
+              <td>88%</td>
+            </tr>
+            <tr>
+              <td>Validation & output</td>
+              <td>40 min</td>
+              <td>10 min</td>
+              <td>75%</td>
+            </tr>
+            <tr style="font-weight: bold;">
+              <td>Total Duration</td>
+              <td>~360 min (6 hours)</td>
+              <td>~30 min</td>
+              <td><strong>92% reduction</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>4.2 Automation Level</h3>
+
+        <p>
+          The system evolved from semi-automated to fully autonomous:
+        </p>
+
+        <ul>
+          <li><strong>Before:</strong> 
+            Automated data collection, but manual parameter tuning and validation;</li>
+          <li><strong>After:</strong> 
+            End-to-end automation; human role reduced to monitoring and exception handling;</li>
+          <li><strong>Frequency:</strong> 
+            Can now run multiple times per day if needed, enabling intra-day model updates.</li>
+        </ul>
+
+        <h3>4.3 Improved Stability</h3>
+
+        <ul>
+          <li><strong>Convergence Rate:</strong> 
+            Reduced parameter count improved convergence success from 85% to 98%;</li>
+          <li><strong>Reproducibility:</strong> 
+            Identical inputs now produce identical surfaces (no trader subjectivity);</li>
+          <li><strong>Surface Quality:</strong> 
+            SABR surfaces exhibit more stable extrapolation behavior away from liquid strikes.</li>
+        </ul>
+
+        <h3>4.4 Infrastructure Efficiency</h3>
+
+        <ul>
+          <li><strong>Disk Usage:</strong> 
+            SABR parameters ($\approx$ 16 bytes) vs. full surface grids ($\approx$ 500 KB); 
+            can now store historical surfaces compactly;</li>
+          <li><strong>Computational Resources:</strong> 
+            Python implementation uses less CPU than VBA (single-threaded, slow);</li>
+          <li><strong>Scalability:</strong> 
+            Trivial to add new underlyings or expiration dates.</li>
+        </ul>
+      </section>
+
+      <!-- Tech Stack -->
+      <section id="tech">
+        <h2>Technology Stack</h2>
+
+        <div class="key-points">
+          <ul>
+            <li><strong>Language:</strong> Python 3.8+, Excel VBA (legacy reference)</li>
+            <li><strong>Scientific Computing:</strong> NumPy, SciPy (optimization, interpolation)</li>
+            <li><strong>Visualization:</strong> Matplotlib, Pandas</li>
+            <li><strong>Databases:</strong> MariaDB, Oracle</li>
+            <li><strong>Scheduler:</strong> APScheduler</li>
+            <li><strong>APIs:</strong> Bloomberg terminal, internal option pricing APIs</li>
+            <li><strong>Notifications:</strong> Telegram Bot API</li>
+            <li><strong>Version Control:</strong> Git</li>
+            <li><strong>Deployment:</strong> Linux (CentOS) servers</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <section class="status-footer">
+        <p>
+          <strong>Project Status:</strong> Completed and in Production (Since February 2023)<br>
+          <strong>Contribution:</strong> Model migration design, calibration algorithm, automation implementation, testing<br>
+          <strong>Impact:</strong> 92% process time reduction, 100% automation, improved stability and reproducibility
+        </p>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    fetch("../../includes/sidebar.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("sidebar").innerHTML = html;
+      });
+  </script>
+
+</body>
+</html>

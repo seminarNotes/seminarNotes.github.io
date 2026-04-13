@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neural ODE-based Data-driven MPC for Mobile Robot Trajectory Tracking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+  <!-- Header Banner -->
+  <div class="header-banner">
+    <img
+      src="https://capsule-render.vercel.app/api?type=waving&color=20:0000ff,120:00ff00&height=100&section=header&text=JunhuiWoo&fontSize=50&fontAlign=79&fontAlignY=30&animation=fadeIn&fontColor=000000&desc=Engineer&descSize=20&rotate=0&descAlign=80&descAlignY=55"
+      alt="header"
+    >
+  </div>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <div id="sidebar"></div>
+
+    <!-- Main Content -->
+    <main class="content">
+
+        <!-- Navigation Tabs -->
+        <div class="project-nav-tabs">
+        <a href="/projects/mpc-mobile-robot/" class="project-nav-tab active">
+            <span class="project-nav-tab-icon">📖</span>Details
+        </a>
+        <a href="/projects/mpc-mobile-robot/demo.html" class="project-nav-tab">
+            <span class="project-nav-tab-icon">🎬</span>Demo
+        </a>
+        </div>
+
+      <!-- Header -->
+      <header class="project-header">
+        <h1>Neural ODE-based Data-driven MPC for Mobile Robot Trajectory Tracking</h1>
+        <div class="project-meta">
+          <strong>Period:</strong> November 2024 - January 2026
+        </div>
+      </header>
+
+      <!-- Table of Contents -->
+      <nav class="toc">
+        <h3>Contents</h3>
+        <ul>
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#motivation">Motivation & Background</a></li>
+          <li><a href="#approach">Proposed Approach</a></li>
+          <li><a href="#results">Experimental Results</a></li>
+          <li><a href="#implementation">Real Robot Implementation</a></li>
+          <li><a href="#tech-stack">Technical Stack</a></li>
+        </ul>
+      </nav>
+
+      <!-- Abstract -->
+      <section id="abstract">
+        <h2>Abstract</h2>
+        <div class="abstract-section">
+          <p>
+            We propose an error-dynamics based data-driven MPC approach for trajectory tracking on mobile robots 
+            using Neural ODE. Rather than learning full system dynamics, we learn local error dynamics from demonstration data, 
+            enabling effective control with limited training samples. We design a Neural ODE-based error dynamics model and 
+            integrate it with Model Predictive Control, incorporating terminal constraints via Riccati/LMI methods for robustness. 
+            On simulated mobile robots with model uncertainty, our method achieves 73% error reduction (RMSE) compared to 
+            the baseline demo controller. The approach successfully transfers to real robot hardware without retraining, 
+            demonstrating effective trajectory tracking despite model mismatch.
+          </p>
+        </div>
+      </section>
+
+      <!-- Motivation -->
+      <section id="motivation">
+        <h2>Motivation & Background</h2>
+        
+        <h3>Problem Statement</h3>
+        <p>
+          Model Predictive Control (MPC) requires accurate system models. When models are unavailable or inaccurate, 
+          tracking performance degrades significantly. Recent works attempt to address this by learning system dynamics 
+          using neural networks. However, this approach faces critical challenges:
+        </p>
+
+        <div class="key-points">
+          <ul>
+            <li><strong>High data requirements:</strong> Full system identification demands large amounts of training data</li>
+            <li><strong>Reference trajectory estimation:</strong> Most methods require separate estimation of unmeasured reference inputs (e.g., reference torque)</li>
+            <li><strong>Data efficiency:</strong> Traditional dynamics learning is sample-inefficient for control applications</li>
+          </ul>
+        </div>
+
+        <h3>Our Solution</h3>
+        <p>
+          Instead of learning full system dynamics, we learn <strong>error dynamics</strong> in the reference frame. 
+          We define the error in polar coordinate system as:
+        </p>
+        <div class="equation">
+          $$\rho_k = \sqrt{(x_{d,k}-x_k)^2 + (y_{d,k}-y_k)^2}, \quad \alpha_k = \mathrm{wrap}\,\Bigl(\mathrm{atan2}(y_{d,k}-y_k,\, x_{d,k}-x_k) - \theta_k\Bigr)$$
+        </div>
+        <p>
+          The error dynamics are learned as:
+        </p>
+        <div class="equation">
+          $$\mathbf{e}_{k+1} = F_{\Phi, \Psi} \left(\mathbf{e}_{k}, \mathbf{u}_{k} \right)$$
+        </div>
+        <p>
+          This approach offers several advantages:
+        </p>
+        <ul>
+          <li>Significantly <strong>reduced data requirements</strong> (leveraging demonstration trajectories)</li>
+          <li><strong>No need for reference trajectory estimation</strong> (error is directly observable)</li>
+          <li><strong>Better generalization</strong> across different tracking tasks</li>
+        </ul>
+      </section>
+
+      <!-- Approach -->
+      <section id="approach">
+        <h2>Proposed Approach</h2>
+
+        <div class="block-diagram">
+          <img src="/projects/mpc-mobile-robot/assets/block_diagram.png" 
+               alt="Control pipeline block diagram"
+               width="900" height="400">
+          <figcaption style="margin-top: 15px; text-align: center; color: #aaa;">
+            <strong>Figure 6:</strong> System architecture: (1) Collect error trajectories from demo controller, 
+            (2) Learn error dynamics using Neural ODE, (3) Design MPC with learned model for trajectory tracking.
+          </figcaption>
+        </div>
+
+        <p>
+          The control pipeline consists of three stages:
+        </p>
+        <ul>
+          <li><strong>Stage 1 - Data Collection:</strong> Run the demo controller on diverse reference trajectories to collect error trajectories $\{e_k, u_k\}$</li>
+          <li><strong>Stage 2 - Error Dynamics Learning:</strong> Train a Neural ODE model $F_{\Phi, \Psi}$ that predicts how tracking errors evolve under control inputs</li>
+          <li><strong>Stage 3 - MPC Design:</strong> Formulate and solve a model predictive control problem using the learned error dynamics, with robust terminal constraints designed via LMI</li>
+        </ul>
+
+        <h3>2.1 Error Dynamics Based MPC</h3>
+        <p>
+          The core idea is to formulate the trajectory tracking problem in the error space. Given a demonstration 
+          (or reference trajectory), we define:
+        </p>
+        <div class="equation">
+          $$e(t) = x_{\text{ref}}(t) - x(t)$$
+        </div>
+        <p>
+          where $x_{\text{ref}}$ is the reference state from demonstration data and $x$ is the current state.
+        </p>
+
+        <h3>2.2 Neural ODE for Error Dynamics</h3>
+        <p>
+          We use Neural ODE to learn a continuous-time error dynamics model:
+        </p>
+        <div class="equation">
+          $$\frac{de}{dt} = \mathbf{f}_{\theta}(e, u)$$
+        </div>
+        <p>
+          The neural network $\mathbf{f}_{\theta}$ captures the dynamics of tracking errors given control inputs, 
+          enabling accurate error prediction over a prediction horizon.
+        </p>
+
+
+        <h3>2.3 MPC Design: Simulation (Nonlinear Dynamics)</h3>
+        <p>
+          In simulation, the MPC optimization problem with nonlinear error dynamics is formulated as:
+        </p>
+        <div class="equation">
+          $$\begin{align}\min_{\{\mathbf{u}_{k}\}_{k=0}^{N-1}}\ &{\sum_{k=0}^{N-1}\bigl(\mathbf{e}_{k}^{\top}Q\mathbf{e}_{k} +\mathbf{u}_{k}^{\top}R\mathbf{u}_{k} +\Delta \mathbf{u}_{k}^{\top}S\Delta \mathbf{u}_{k}\bigr) + \mathbf{e}_{N}^{\top}P\mathbf{e}_{N}} \\ \text{subject to:}\ &\mathbf{e}_{k+1} = F_{\Phi, \Psi} \left(\mathbf{e}_{k}, \mathbf{u}_{k} \right), \\ &\mathbf{e}_{\text{min}} \leq \mathbf{e}_{k} \leq \mathbf{e}_{\text{max}}, \quad\text{for }  k=0,\cdots,N-1 \\ & \mathbf{u}_{\text{min}} \leq \mathbf{u}_{k} \leq \mathbf{u}_{\text{max}}, \quad\text{for }  k=0,\cdots,N-1 \\ & \Delta \mathbf{u}_{\min} \le \Delta \mathbf{u}_k \le \Delta \mathbf{u}_{\max}, \quad\text{for }  k=0,\cdots,N-1 \\ & \Delta \mathbf{u}_{k} :=\mathbf{u}_{k} - \mathbf{u}_{k-1} \\ &\mathbf{e}_{N}^{\top} P \mathbf{e}_{N} \leq 1, \quad \mathbf{u}_{\text{min}} \leq K\mathbf{e}_{N} \leq \mathbf{u}_{\text{max}}\end{align}$$
+        </div>
+
+        <h3>2.4 MPC Design: Real Robot (Linear Dynamics via Linearization)</h3>
+        <p>
+          For real robot deployment, we linearize the learned error dynamics around the equilibrium point to obtain a linear model. 
+          The MPC formulation with linear error dynamics is:
+        </p>
+        <div class="equation">
+          $$\begin{align}\min_{\{\mathbf{u}_{k}\}_{k=0}^{N-1}}\ &{\sum_{k=0}^{N-1}\bigl(\mathbf{e}_{k}^{\top}Q\mathbf{e}_{k} +\mathbf{u}_{k}^{\top}R\mathbf{u}_{k} +\Delta \mathbf{u}_{k}^{\top}S\Delta \mathbf{u}_{k}\bigr) + \mathbf{e}_{N}^{\top}P\mathbf{e}_{N}} \\ \text{subject to:}\ &\mathbf{e}_{k+1} = A\, \mathbf{e}_{k} + B\, \mathbf{u}_{k}, \\ &\mathbf{e}_{\text{min}} \leq \mathbf{e}_{k} \leq \mathbf{e}_{\text{max}}, \quad\text{for }  k=0,\cdots,N-1 \\ & \mathbf{u}_{\text{min}} \leq \mathbf{u}_{k} \leq \mathbf{u}_{\text{max}}, \quad\text{for }  k=0,\cdots,N-1 \\ & \Delta \mathbf{u}_{\min} \le \Delta \mathbf{u}_k \le \Delta \mathbf{u}_{\max}, \quad\text{for }  k=0,\cdots,N-1 \\ & \Delta \mathbf{u}_{k} :=\mathbf{u}_{k} - \mathbf{u}_{k-1} \\ &\mathbf{e}_{N}^{\top} P \mathbf{e}_{N} \leq 1, \quad \mathbf{u}_{\text{min}} \leq K\mathbf{e}_{N} \leq \mathbf{u}_{\text{max}}\end{align}$$
+        </div>
+
+        <h3>2.5 Terminal Ingredients Design via LMI</h3>
+        <p>
+          The terminal cost matrix $P$ and feedback gain $K$ are computed to ensure robust stability and constraint satisfaction. 
+          The terminal ingredients satisfy the Lyapunov decrease condition:
+        </p>
+        <div class="equation">
+          $$\Delta V_{k} \leq -\mathbf{e}^{\top}_{k}Q\mathbf{e}_{k} - (K\mathbf{e}_{k})^{\top}RK\mathbf{e}_{k}+c||\mathbf{w}_{k}||^{2}$$
+        </div>
+        <p>
+          where $\Delta V_{k}:= V(\mathbf{e}_{k+1})-V(\mathbf{e}_{k})$ and $c >0$ quantifies the contribution of the mismatch energy to the Lyapunov difference.
+        </p>
+        
+        <p>
+          The terminal region is defined as a normalized ellipsoidal set:
+        </p>
+        <div class="equation">
+          $$\Omega := \left\{ \mathbf{e}\in\mathbb{R}^{n_{\mathbf{e}}} : \mathbf{e}^{\top} P \mathbf{e} \leq 1 \right\}$$
+        </div>
+
+        <p>
+          To maximize the terminal set size, we perform the variable substitution $X:=P^{-1}>0$, $Y:=KX$, which gives:
+        </p>
+        <div class="equation">
+          $$K=YX^{-1}, \quad P = X^{-1}$$
+        </div>
+
+        <p>
+          The terminal ingredients are computed by solving the following SDP problem:
+        </p>
+        <div class="equation">
+          $$\begin{align}\max_{X>0,\,Y,\,c>0} & \log \det (X) \\ \text{subject to:}\ &\textbf{(LMI-D)}: \text{ enforces dissipativity decrease} \\ &\textbf{(LMI-U)}: \text{ ensures input admissibility}\end{align}$$
+        </div>
+
+        <p>
+          <strong>LMI-D</strong> (Dissipativity Decrease Condition):
+        </p>
+        <div class="equation">
+          $$\begin{bmatrix}X & (A\, X + B\, Y)^\top & (Q^{1/2}X)^\top & (R^{1/2}Y)^\top & X\\A\, X + B\, Y & X & 0 & 0 & 0\\Q^{1/2}X & 0 & I & 0 & 0\\R^{1/2}Y & 0 & 0 & I & 0\\X & 0 & 0 & 0 & cI\end{bmatrix}\succeq 0$$
+        </div>
+
+        <p>
+          <strong>LMI-U</strong> (Input Admissibility with symmetric box constraints $\mathbf{u}_{\max} = -\mathbf{u}_{\min}$):
+          For each component $j$ ($1\leq j \leq n_{\mathbf{u}}$), define $\bar{\mathbf{u}}_{j} := (\mathbf{u}_{\max})_{j}$:
+        </p>
+        <div class="equation">
+          $$\begin{bmatrix}    \bar{\mathbf{u}}_{j}^{2} & (Y)_{j} \\    (Y)_{j}^{\top} & X\end{bmatrix} \succeq 0$$
+        </div>
+
+        <p>
+          From the SDP solution $(X, Y, c)$, the terminal ingredients are recovered as:
+        </p>
+        <div class="equation">
+          $$P = X^{-1}, \quad K = YX^{-1}$$
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section id="results">
+        <h2>Experimental Results</h2>
+
+        <h3>3.1 Simulation Environment Setup</h3>
+        <p>
+          We evaluate our method on a 2-DOF mobile robot system with model uncertainty. Three test cases with 
+          varying difficulty levels are considered.
+        </p>
+
+        <h3>3.2 Tracking Performance Comparison</h3>
+        <p>
+          The following table compares tracking metrics (RMSE, IAE, Max Error) between the baseline demo controller (PD) 
+          and our Neural ODE-based MPC. Results are computed over the last 90% of each trajectory (excluding initial 10% transient).
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th rowspan="2"><strong>Metric</strong></th>
+              <th colspan="2"><strong>Case 1</strong></th>
+              <th colspan="2"><strong>Case 2</strong></th>
+              <th colspan="2"><strong>Case 3</strong></th>
+            </tr>
+            <tr>
+              <th>PD (Demo)</th>
+              <th>MPC (Ours)</th>
+              <th>PD (Demo)</th>
+              <th>MPC (Ours)</th>
+              <th>PD (Demo)</th>
+              <th>MPC (Ours)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>RMSE (ρ)</strong></td>
+              <td>0.731255</td>
+              <td>0.216030</td>
+              <td>0.491642</td>
+              <td>0.136078</td>
+              <td>1.361029</td>
+              <td>0.338809</td>
+            </tr>
+            <tr>
+              <td><strong>IAE (ρ)</strong></td>
+              <td>12.851952</td>
+              <td>3.672504</td>
+              <td>13.243934</td>
+              <td>3.654632</td>
+              <td>33.551726</td>
+              <td>8.339416</td>
+            </tr>
+            <tr>
+              <td><strong>Max Error (ρ)</strong></td>
+              <td>0.939897</td>
+              <td>0.596906</td>
+              <td>0.529926</td>
+              <td>0.163042</td>
+              <td>2.139619</td>
+              <td>0.566945</td>
+            </tr>
+            <tr>
+              <td><strong>RMSE (α)</strong></td>
+              <td>0.183255</td>
+              <td>0.073051</td>
+              <td>0.251725</td>
+              <td>0.090300</td>
+              <td>0.148577</td>
+              <td>0.071312</td>
+            </tr>
+            <tr>
+              <td><strong>IAE (α)</strong></td>
+              <td>2.975992</td>
+              <td>1.194117</td>
+              <td>6.775357</td>
+              <td>2.421502</td>
+              <td>4.002845</td>
+              <td>1.911650</td>
+            </tr>
+            <tr>
+              <td><strong>Max Error (α)</strong></td>
+              <td>0.306535</td>
+              <td>0.119131</td>
+              <td>0.283365</td>
+              <td>0.118545</td>
+              <td>0.156180</td>
+              <td>0.085295</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          <strong>Key findings:</strong>
+        </p>
+        <ul>
+          <li>Our MPC achieves approximately <strong>70-73% error reduction</strong> in RMSE across all cases</li>
+          <li>Maximum errors are significantly reduced, indicating more consistent tracking performance</li>
+          <li>Performance improvements are consistent across both position (ρ) and orientation (α) states</li>
+        </ul>
+
+        <div class="result-figures-grid">
+            <figure class="result-figure">
+              <img src="/projects/mpc-mobile-robot/assets/sim_lemniscate.png" 
+                   alt="Simulation trajectory comparison"
+                   width="100%" height="auto">
+              <figcaption>
+                <strong>Figure 3a:</strong> 
+                Trajectory tracking results in simulation. 
+              </figcaption>
+            </figure>
+  
+            <figure class="result-figure">
+              <img src="/projects/mpc-mobile-robot/assets/sim_spiral.png" 
+                   alt="Error evolution over time"
+                   width="100%" height="auto">
+              <figcaption>
+                <strong>Figure 3b:</strong> 
+                Error state evolution over time.
+              </figcaption>
+            </figure>
+          </div>
+      </section>
+
+      <!-- Real Robot Implementation -->
+      <section id="implementation">
+        <h2>Real Robot Implementation</h2>
+
+        <h3>4.1 Sim-to-Real Transfer</h3>
+        <p>
+          The controller learned in simulation is directly deployed on a real mobile robot without any retraining or fine-tuning. 
+          The robust MPC formulation (via Riccati/LMI terminal constraints) ensures stability despite inevitable model mismatch.
+        </p>
+
+        <h3>4.2 Real Robot Performance</h3>
+        <p>
+          The system successfully tracks reference trajectories on real hardware, demonstrating:
+        </p>
+        <ul>
+          <li>Effective error convergence despite model uncertainty</li>
+          <li>Smooth control inputs without chattering</li>
+          <li>Generalization to new trajectory patterns</li>
+        </ul>
+
+        <div class="result-figures-grid">
+            <figure class="result-figure">
+              <img src="/projects/mpc-mobile-robot/assets/real_ellipse.png" 
+                   alt="Simulation trajectory comparison"
+                   width="100%" height="auto">
+              <figcaption>
+                <strong>Figure 3a:</strong> 
+                Trajectory tracking results in simulation. 
+              </figcaption>
+            </figure>
+  
+            <figure class="result-figure">
+              <img src="/projects/mpc-mobile-robot/assets/real_lemniscate.png" 
+                   alt="Error evolution over time"
+                   width="100%" height="auto">
+              <figcaption>
+                <strong>Figure 3b:</strong> 
+                Error state evolution over time.
+              </figcaption>
+            </figure>
+          </div>
+      </section>
+
+      <!-- Technical Stack -->
+      <section id="tech-stack">
+        <h2>Technical Stack</h2>
+        <ul>
+          <li><strong>Control:</strong> CasADi (for MPC optimization, NLP formulation)</li>
+          <li><strong>Robot Framework:</strong> ROS2 (middleware for robot control and communication)</li>
+          <li><strong>Deep Learning:</strong> PyTorch (for Neural ODE training and deployment)</li>
+        </ul>
+
+
+      <!-- Publications & Presentations -->
+      <section id="publications">
+        <h2>Publications & Presentations</h2>
+
+        <p>
+          This research has been disseminated through peer-reviewed journals, international conference proceedings, and presentations.
+        </p>
+
+        <div class="publication-category">
+          <h4>📄 Journal Articles</h4>
+          <div class="publication-item">
+            <strong>Enhancing Trajectory Tracking via Neural ODE-based MPC with One-shot Learned Error Dynamics</strong><br>
+            <em>International Journal of Robust and Nonlinear Control</em>, Under Review<br>
+            1st Author (1/3) — Submitted 2024
+          </div>
+        </div>
+
+        <div class="publication-category">
+          <h4>📋 Conference Proceedings</h4>
+          <div class="publication-item">
+            <strong>Neural ODE Predictive Control with Error Dynamics Learned From Demonstration for Trajectory Tracking</strong><br>
+            <em>Proceedings of the International Federation of Automatic Control World Congress (IFAC 2026)</em>, Under Review<br>
+            1st Author (1/3) — Submitted for IFAC WC 2026
+          </div>
+          <div class="publication-item">
+            <strong>Nonlinear MPC with RNN-based Neural ODEs Trained on Trajectory Tracking Demonstration</strong><br>
+            <em>Proceedings of the International Conference on Control, Automation and Systems (ICCAS 2025)</em>, Published<br>
+            1st Author (1/2) — Published October 2025
+          </div>
+        </div>
+
+        <div class="publication-category">
+          <h4>🎤 Oral Presentations (Excluding Proceeding Presentations)</h4>
+          <div class="publication-item">
+            <strong>Nonlinear MPC Using LSTM-Based Neural ODEs Trained on Trajectory Tracking Demonstration</strong><br>
+            <em>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2025)</em><br>
+            Hangzhou, China | October 22, 2025<br>
+            1st Author (1/2) — Poster Presentation
+          </div>
+          <div class="publication-item">
+            <strong>Neural ODE-LSTM 기반 오차 동역학 모델을 활용한 비선형 MPC에 의한 모바일 로봇 경로 추적</strong><br>
+            <em>The 56th Summer Conference of the Korea Institute of Electrical Engineers (KIEE 2025)</em><br>
+            Busan, Korea | July 18, 2025<br>
+            1st Author (1/2) — Oral Presentation (Korean)
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Footer -->
+      <section class="status-footer">
+        <p>
+          <strong>Status:</strong> Paper under review<br>
+          <strong>Code & Data:</strong> Available upon publication
+        </p>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    fetch("../../includes/sidebar.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("sidebar").innerHTML = html;
+      });
+  </script>
+
+</body>
+</html>
