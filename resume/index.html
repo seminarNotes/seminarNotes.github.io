@@ -1,0 +1,130 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Junhui Woo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <!-- Header Banner -->
+  <div class="header-banner">
+    <img
+      src="https://capsule-render.vercel.app/api?type=waving&color=20:0000ff,120:00ff00&height=100&section=header&text=JunhuiWoo&fontSize=50&fontAlign=79&fontAlignY=30&animation=fadeIn&fontColor=000000&desc=Engineer&descSize=20&rotate=0&descAlign=80&descAlignY=55"
+      alt="header"
+    >
+  </div>
+
+  
+  <div class="layout">
+    <!-- Sidebar -->
+    <div id="sidebar"></div>
+
+    <!-- Main Content -->
+    <!-- Main Content -->
+    <!-- Main Content -->
+    <main class="content">  
+      <section>
+        <h2>🎓 Education</h2>
+        <ul class="pub-list">
+          <li>
+            [<a href="https://control.knu.ac.kr/">E1</a>]
+            <strong>Master’s Degree in Water & IT Engineering</strong>,
+            Kyoungpook National University<br>
+            Physical Intelligence Laboratory<br>
+            Sep. 2024 – Aug. 2026 (Expected)<br>
+            Thesis: _____
+          </li>
+        <li>
+          [<a href="https://fmath613.pusan.ac.kr/">E2</a>]
+          <strong>Master’s Degree in Mathematics</strong>,
+            Pusan National University<br>
+            Financial Mathematics Laboratory<br>
+            Sep. 2017 – Aug. 2019<br>
+            <a href="https://www.dbpia.co.kr/journal/detail?nodeId=T15937519">Thesis</a>: The Pricing Vulnerable Options under the Constant Elasticity of Variance Model
+        </li>
+        <li>
+          [<a href="https://mathed.inha.ac.kr/">E3</a>]
+            <strong>Bachelor’s Degree in Mathematics Education</strong>,
+            Inha University<br>
+            Mar. 2013 – Feb. 2017<br>
+        </li>
+      </ul>
+      </section>
+
+      <section>
+        <h2>💼 Work Experience</h2>
+        <ul class="pub-list">
+      
+          <li>
+            [W1] <strong>Data Engineer (Freelancer)</strong>, Samsung SDS<br>
+            <em>Apr. 2024 – Aug. 2024</em><br>
+            Data ELT pipeline operation and maintenance using AWS services.
+          </li>
+      
+          <li>
+            [W2] <strong>Data Analyst & Quant Developer</strong>,
+            KIS Pricing
+            [<a href="https://www.bond.co.kr/en" target="_blank">URL</a>]<br>
+            <em>Sep. 2017 – Aug. 2019</em>
+            <ul>
+              <li>SDE-based stock price and volatility modeling</li>
+              <li>Monte Carlo simulation and numerical option pricing methods</li>
+              <li>Implementation of evaluation modules in Python and C</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>🏆 Awards & Certificates</h2>
+        <ul class="pub-list">
+          <li>
+            [A1]
+            <strong>Graduate Academic Excellence Award</strong><br>
+            College of Natural Sciences, Pusan National University<br>
+            Awarded for outstanding academic performance and the publication of high-quality research articles during the master’s program.<br>
+            May 29, 2020.
+          </li>
+
+          <li>
+            [C1]
+            <strong>Engineer Information Processing</strong><br>
+            Human Resources Development Service of Korea (HRDK)<br>
+            Passed on June 18, 2024.
+          </li>
+
+          <li>
+            [C2]
+            <strong>Associate Data Analyst (ADsP)</strong><br>
+            Korea Data Agency (K-DATA)<br>
+            Passed on June 7, 2024.
+          </li>
+      
+          <li>
+            [C3]
+            <strong>SQL Developer (SQLD)</strong><br>
+            Korea Data Agency (K-DATA)<br>
+            Passed on April 5, 2024.
+          </li>
+
+        </ul>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    fetch("../includes/sidebar.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("sidebar").innerHTML = html;
+      });
+  </script>
+
+</body>
+</html>
