@@ -1,0 +1,16 @@
+# =========================================================
+# Private data — NEVER publish to GitHub / GitHub Pages
+# =========================================================
+# Master resume database (contains personal information)
+# and uncompressed source media. Local-only.
+database/
+
+# =========================================================
+# OS / editor noise
+# =========================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/

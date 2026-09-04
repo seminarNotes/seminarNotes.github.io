@@ -1,11 +1,9 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Junhui Woo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Junhui Woo</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -19,72 +17,188 @@
     >
   </div>
 
-  
   <div class="layout">
     <!-- Sidebar -->
     <div id="sidebar"></div>
 
     <!-- Main Content -->
-    <!-- Main Content -->
-    <!-- Main Content -->
-    <main class="content">  
+    <main class="content">
+
       <section>
         <h2>🎓 Education</h2>
         <ul class="pub-list">
           <li>
             [<a href="https://control.knu.ac.kr/">E1</a>]
-            <strong>Master’s Degree in Water & IT Engineering</strong>,
-            Kyoungpook National University<br>
-            Physical Intelligence Laboratory<br>
-            Sep. 2024 – Aug. 2026 (Expected)<br>
-            Thesis: _____
+            <strong>M.S. in Water &amp; IT Convergence Engineering</strong>,
+            Kyungpook National University<br>
+            Physical Intelligence Laboratory (Advisor: Prof. Sangmoon Lee)<br>
+            <em>Sep. 2024 – Aug. 2026</em><br>
+            Thesis: Enhancing Trajectory Tracking via Neural ODE-Based MPC with One-Shot Learned Error Dynamics
           </li>
-        <li>
-          [<a href="https://fmath613.pusan.ac.kr/">E2</a>]
-          <strong>Master’s Degree in Mathematics</strong>,
+
+          <li>
+            [<a href="https://fmath613.pusan.ac.kr/">E2</a>]
+            <strong>M.S. in Mathematics</strong>,
             Pusan National University<br>
-            Financial Mathematics Laboratory<br>
-            Sep. 2017 – Aug. 2019<br>
-            <a href="https://www.dbpia.co.kr/journal/detail?nodeId=T15937519">Thesis</a>: The Pricing Vulnerable Options under the Constant Elasticity of Variance Model
-        </li>
-        <li>
-          [<a href="https://mathed.inha.ac.kr/">E3</a>]
-            <strong>Bachelor’s Degree in Mathematics Education</strong>,
+            Financial Mathematics Laboratory (Advisor: Prof. Ji-Hun Yoon)<br>
+            <em>Sep. 2019 – Aug. 2021</em><br>
+            <a href="https://www.dbpia.co.kr/journal/detail?nodeId=T15937519">Thesis</a>: The Pricing of Vulnerable Options under a Constant Elasticity of Variance Model
+          </li>
+
+          <li>
+            [<a href="https://mathed.inha.ac.kr/">E3</a>]
+            <strong>B.S. in Mathematics Education</strong>,
             Inha University<br>
-            Mar. 2013 – Feb. 2017<br>
-        </li>
-      </ul>
+            <em>Mar. 2013 – Feb. 2017</em>
+          </li>
+        </ul>
       </section>
 
       <section>
         <h2>💼 Work Experience</h2>
         <ul class="pub-list">
-      
+
           <li>
-            [W1] <strong>Data Engineer (Freelancer)</strong>, Samsung SDS<br>
+            [W1] <strong>Research Staff (Postgraduate Contract Researcher)</strong>,
+            Advanced Institute of Water Industry, Kyungpook National University<br>
+            <em>Aug. 2026 – Present</em><br>
+            Data-driven control and robotics research conducted with the Physical Intelligence Laboratory.
+          </li>
+
+          <li>
+            [W2] <strong>Data Engineer (Freelancer)</strong>, Samsung SDS<br>
             <em>Apr. 2024 – Aug. 2024</em><br>
             Data ELT pipeline operation and maintenance using AWS services.
           </li>
-      
+
           <li>
-            [W2] <strong>Data Analyst & Quant Developer</strong>,
+            [W3] <strong>Assistant Manager, Financial Engineering Research Center</strong>,
             KIS Pricing
-            [<a href="https://www.bond.co.kr/en" target="_blank">URL</a>]<br>
-            <em>Sep. 2017 – Aug. 2019</em>
-            <ul>
-              <li>SDE-based stock price and volatility modeling</li>
-              <li>Monte Carlo simulation and numerical option pricing methods</li>
-              <li>Implementation of evaluation modules in Python and C</li>
-            </ul>
+            [<a href="https://www.bond.co.kr/en" target="_blank" rel="noopener">URL</a>]<br>
+            <em>Dec. 2021 – Aug. 2023</em><br>
+            Derivatives valuation systems and quantitative model development.
           </li>
         </ul>
       </section>
-      
+
       <section>
-        <h2>🏆 Awards & Certificates</h2>
+        <h2>🔬 Research Projects</h2>
+        <ul class="pub-list">
+
+          <li>
+            [R1]
+            <strong>Error-Driven Imitation Learning with Certified Contractivity</strong><br>
+            Kyungpook National University<br>
+            <em>Apr. 2026 – Aug. 2026</em>
+            <ul>
+              <li>Learned a demonstrator's error-propagation rule as a parameter-varying Neural ODE, and derived a closed-form MPC policy analytically — no iterative optimization at run time</li>
+              <li>Proved stability of the learned policy via Contraction theory and Input-to-State Stability (ISS)</li>
+              <li>From a single demonstration trajectory: 98.4% RMSE reduction on a 4-DOF manipulator (simulation); 25.4% position and 84.5% heading RMSE reduction on a TurtleBot3 (hardware)</li>
+            </ul>
+          </li>
+
+          <li>
+            [R2]
+            <strong>Hydraulic Control of Construction Equipment (Excavator)</strong><br>
+            Industry collaboration with the Korea Construction Equipment Technology Institute (KOCETI)<br>
+            <em>Jul. 2026 – Aug. 2026</em>
+            <ul>
+              <li>Extended the error-dynamics + MPC framework to an excavator hydraulic system, targeting the non-contact swing / boom / arm / bucket phase</li>
+              <li>Learned the error dynamics in Linear Parameter-Varying (LPV) form and combined it with MPC</li>
+              <li>Performed the full data-collection, training and evaluation pipeline in the Vortex Studio simulator</li>
+            </ul>
+          </li>
+
+          <li>
+            [R3]
+            <strong>Energy-Efficient MPC for Industrial Thermal Processing</strong><br>
+            Industrial project<br>
+            <em>Nov. 2025 – Jan. 2026</em>
+            <ul>
+              <li>ARX system identification from PID control logs collected on a real plant</li>
+              <li>Designed an Extended State Observer (ESO) + MPC controller on the identified model</li>
+              <li>Reduced processing time / tracking error / total control cost by approximately 46% / 25% / 43% against the PID baseline; the resulting MPC structure was deployed to the plant PLC</li>
+            </ul>
+          </li>
+
+          <li>
+            [R4]
+            <strong>Neural ODE-Based Data-Driven MPC for Mobile Robot Trajectory Tracking</strong><br>
+            Kyungpook National University (M.S. thesis research)<br>
+            <em>Nov. 2024 – Jan. 2026</em>
+            <ul>
+              <li>Formulated error-dynamics-based data-driven MPC for trajectory tracking, using a Neural ODE as the MPC prediction model</li>
+              <li>Reduced tracking RMSE by about 73% against the demonstration controller in simulation</li>
+              <li>Designed Riccati/LMI-based terminal constraints and a Robust MPC structure, and transferred the controller successfully to a real mobile robot under model mismatch</li>
+            </ul>
+          </li>
+
+          <li>
+            [R5]
+            <strong>Nonlinear Control of a Magnetic Levitation System</strong><br>
+            Industry–academia collaborative project (team of 2)<br>
+            <em>Apr. 2025 – Jun. 2025</em>
+            <ul>
+              <li>Analyzed the nonlinear dynamics of the magnetic levitation plant</li>
+              <li>Compensated the nonlinearity by feedback linearization and designed a PD controller</li>
+              <li>Verified control input and tracking error in MATLAB/Simulink, then realized steel-ball levitation on the physical test rig</li>
+            </ul>
+          </li>
+
+          <li>
+            [R6]
+            <strong>ROS-Based Mobile Robot for Automatic Structural Crack Detection</strong><br>
+            Industry–academia collaborative project (team of 4)<br>
+            <em>Oct. 2024 – Jun. 2025</em>
+            <ul>
+              <li>Built the ROS mobile robot platform, driving test environment and system integration</li>
+              <li>Trained and validated a YOLO-based crack detection model</li>
+              <li>Designed a real-time detection pipeline fusing robot odometry with the camera stream, and managed the Gazebo simulation schedule</li>
+            </ul>
+          </li>
+
+        </ul>
+      </section>
+
+      <section>
+        <h2>🛠 Technical Skills</h2>
+        <ul class="pub-list">
+          <li>
+            <strong>Programming</strong><br>
+            Python, C++
+          </li>
+          <li>
+            <strong>Machine Learning</strong><br>
+            PyTorch, NumPy, Neural ODE / RNN–LSTM sequence models
+          </li>
+          <li>
+            <strong>Robotics &amp; Simulation</strong><br>
+            ROS, Gazebo, Vortex Studio, MATLAB / Simulink
+          </li>
+          <li>
+            <strong>Optimization &amp; Control</strong><br>
+            CasADi, MOSEK, Nonlinear / Robust / LPV MPC, LMI-based synthesis
+          </li>
+          <li>
+            <strong>Data &amp; Infrastructure</strong><br>
+            Linux, MySQL / MariaDB, Oracle, Elasticsearch, Logstash, Kibana, Celery
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>🏆 Awards &amp; Certificates</h2>
         <ul class="pub-list">
           <li>
             [A1]
+            <strong>IFAC 2026 Travel Grant</strong><br>
+            Institute of Control, Robotics and Systems (ICROS)<br>
+            Awarded in recognition of the quality of the paper submitted to the IFAC World Congress 2026.<br>
+            Oct. 2026 (expected).
+          </li>
+
+          <li>
+            [A2]
             <strong>Graduate Academic Excellence Award</strong><br>
             College of Natural Sciences, Pusan National University<br>
             Awarded for outstanding academic performance and the publication of high-quality research articles during the master’s program.<br>
@@ -104,12 +218,18 @@
             Korea Data Agency (K-DATA)<br>
             Passed on June 7, 2024.
           </li>
-      
+
           <li>
             [C3]
             <strong>SQL Developer (SQLD)</strong><br>
             Korea Data Agency (K-DATA)<br>
             Passed on April 5, 2024.
+          </li>
+
+          <li>
+            [L1]
+            <strong>OPIc English — Intermediate High</strong><br>
+            Taken on June 26, 2026.
           </li>
 
         </ul>
@@ -119,7 +239,7 @@
   </div>
 
   <script>
-    fetch("../includes/sidebar.html")
+    fetch("/includes/sidebar.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("sidebar").innerHTML = html;
